@@ -1,0 +1,90 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); */
+
+@import "tailwindcss";
+@font-face {
+  font-family: Inter;
+  src: url("/assets/fonts/inter/Inter-Light-BETA.otf");
+  font-display: swap;
+  font-weight: 300;
+}
+@font-face {
+  font-family: Inter;
+  src: url("/assets/fonts/inter/Inter-Regular.otf");
+  font-display: swap;
+  font-weight: 400;
+}
+@font-face {
+  font-family: Inter;
+  src: url("/assets/fonts/inter/Inter-Medium.otf");
+  font-display: swap;
+  font-weight: 500;
+}
+@font-face {
+  font-family: Inter;
+  src: url("/assets/fonts/inter/Inter-SemiBold.otf");
+  font-display: swap;
+  font-weight: 600;
+}
+
+* {
+  scroll-behavior: smooth !important;
+  font-family: "Inter", sans-serif;
+}
+
+@theme inline {
+
+  --color-light-green: #7B9182;
+  --color-green: #227D53;
+  --color-lime-green: #C5FF93;
+  --color-dark-green: #155234;
+  --color-grey: #969696;
+  --color-light-grey: #F7F7F7;
+  --color-graphite: #444444;
+  --color-bold-grey: #666666;
+  --color-light-red: #DBA6A9;
+  --color-light-grey-100:#EFF8F2;
+  --color-light-grey-200:#737373;
+--text-custom-xs:10px;
+  --text-xsm: 13px;
+
+  --gradient-green: linear-gradient(180deg, #155234 0%, #227D53 100%);
+
+  --leading-100: 100%;
+  --leading-150: 150%;
+  --leading-120: 120%;
+  --leading-184: 184%;
+  --leading-157: 157%;
+  --leading-137: 137%;
+  --leading-144: 144%;
+  --text-custom-4xl: 40px;
+  --text-custom-6xl:64px;
+  --breakpoint-custom-xl:1480px;
+
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;}
+
+  :-webkit-autofill,
+:-webkit-autofill:hover,
+:-webkit-autofill:focus,
+:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+  -webkit-text-fill-color: #000 !important; 
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: #555;
+  border-radius: 10px;
+}
+
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #5FBD92;
+  border-radius: 10px;
+}
