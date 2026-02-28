@@ -1,34 +1,33 @@
 import "../globals.css";
+
+import { Metadata } from "next";
+
 import Sidebar from "../components/common/Sidebar";
 import Navigation from "../components/common/Navigation";
-import { Metadata } from 'next';
+
 export const metadata: Metadata = {
-  title: "Dashboard | seqxio",
-  description: "Powering Smarter, Cleaner Cities",
-  openGraph: {
     title: "Dashboard | seqxio",
-    description:
-      "Powering Smarter, Cleaner Cities",
-    images: "/dashboard-meta-img",
-  },
+    description: "Powering Smarter, Cleaner Cities",
+    openGraph: {
+        title: "Dashboard | seqxio",
+        description: "Powering Smarter, Cleaner Cities",
+        images: "/dashboard-meta-img",
+    },
 };
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body
-      >
-        <div className="flex gap-5 py-3 px-4 w-full h-screen">
-          <Sidebar />
-          <div className="space-y-4 flex-1 w-full lg:ps-[280px]">
-            <Navigation />
-            {children}
-          </div>
+
+export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
+    return (
+        <html lang="en">
+        <body
+        >
+        <div className="w-full h-screen py-3 px-4 flex gap-5">
+            <Sidebar/>
+            <div className="w-full space-y-4 flex-1 lg:ps-70">
+                <Navigation/>
+                {children}
+            </div>
         </div>
-      </body>
-    </html>
-  );
+        </body>
+        </html>
+    );
 }

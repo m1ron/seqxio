@@ -1,63 +1,6 @@
 
 import {  PhotoDetails, RoadsDetails, SidebarItem } from "./type";
 
-export const SIDEBAR_DATA: SidebarItem[] = [
-    {
-        title: "MENU",
-        sublinks: [
-            {
-                name: "Dashboard",
-                url: "/",
-                icon: "activedashboard",
-            },
-            {
-                name: "Tasks",
-                url: "#",
-                icon: "tasks",
-            },
-            {
-                name: "Calendar",
-                url: "#",
-                icon: "calendar"
-            },
-            {
-                name: "Analytics",
-                url: "#",
-                icon: "analytics"
-            },
-            {
-                name: "Reports",
-                url: "#",
-                icon: "reports"
-            },
-            {
-                name: "Team",
-                url: "#",
-                icon: "team",
-            },
-        ],
-    },
-    {
-        title: "GENERAL",
-        sublinks: [
-            {
-                name: "Settings",
-                url: "#",
-                icon: "setting",
-            },
-            {
-                name: "Help",
-                url: "#",
-                icon: "help",
-            },
-            {
-                name: "Logout",
-                url: "/sign-in",
-                icon: "logout"
-            },
-        ],
-    },
-];
 export const ICONS_DATA_LIST = [
     "mailIcon", "notification"
 ]

@@ -1,146 +1,122 @@
 "use client";
-import Image from 'next/image'
-import React from 'react'
-import Icons from './Icons'
-import Link from 'next/link'
-import { SIDEBAR_DATA } from '@/app/utils/helper'
-import useStore from '@/app/utils/store'
-import { useRouter } from 'next/navigation'
+
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import Icons from "./Icons";
+import useStore from "@/app/utils/store";
+
+export const SIDEBAR_DATA = [
+    {
+        title: "Menu",
+        sublinks: [
+            { name: "Dashboard", url: "/", icon: "dashboard" },
+            { name: "Projects", url: "#", icon: "projects" },
+            { name: "Calendar", url: "#", icon: "calendar" },
+            { name: "Analytics", url: "#", icon: "analytics" },
+            { name: "Reports", url: "#", icon: "reports" },
+            { name: "Team", url: "#", icon: "team" },
+        ],
+    },
+    {
+        title: "General",
+        sublinks: [
+            { name: "Settings", url: "#", icon: "settings" },
+            { name: "Help", url: "#", icon: "help" },
+            { name: "Logout", url: "/sign-in", icon: "logout" },
+        ],
+    },
+];
 
 const Sidebar: React.FC = () => {
-  const router = useRouter();
-  const { openNav, setOpenNav } = useStore() as {
-    openNav: boolean;
-    setOpenNav: (open: boolean) => void;
-  };
-  const menuData = SIDEBAR_DATA.filter(item => item.title === "MENU");
-  const generalData = SIDEBAR_DATA.filter(item => item.title === "GENERAL");
-
-  const handleLogout = () => {
-    router.push('/sign-in');
-  };
-
-  // Prevent body scroll when sidebar is open
-  React.useEffect(() => {
-    if (openNav) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-
-    // Cleanup on unmount
-    return () => {
-      document.body.style.overflow = 'unset';
+    const router = useRouter();
+    const { openNav, setOpenNav } = useStore() as {
+        openNav: boolean;
+        setOpenNav: (open: boolean) => void;
     };
-  }, [openNav]);
-  return (
-    <>
-      {/* BLUR BACKGROUND */}
-      {openNav && (
-        <div
-          className="fixed inset-0 backdrop-blur-sm bg-black/20 lg:hidden z-40 transition-all duration-300"
-          onClick={() => setOpenNav(false)}
-        />
-      )}
-      {/* side bar  */}
-      <div
-        className={`
-    fixed lg:fixed top-3 lg:left-4 bottom-3  z-50
-    min-h-[calc(100vh-24px)] max-h-[calc(100vh-24px)] overflow-y-auto
-    sm:w-[43%] w-[70%]  lg:max-w-[264px] lg:min-w-[264px] 
-    bg-light-grey p-6 rounded-[25px]
-    flex flex-col justify-between gap-8 scrollbar-hide
-    transform transition-transform duration-300
-     ${openNav ? "translate-x-0 max-lg:left-4" : "-translate-x-full max-lg:left-0"}
-    lg:translate-x-0
-  `}>
-        <div className='flex justify-between'>
-          <Link href='/'>
-            <Image src="/assets/images/png/logo-dashboard.png"
-              alt='logo-dashboard'
-              width={180}
-              height={83}
-              className='object-cover my-4'
-            />
-          </Link>
-          <button
-            onClick={() => setOpenNav(false)}
-            className="lg:hidden h-fit cursor-pointer bg-dark-green rounded-sm p-1 hover:scale-105 transition-all ease-linear duration-300">
-            <Icons icon="closenav" />
-          </button>
-        </div>
 
-        {/* menu */}
-        <div>
-          {menuData.map((item, index) => (
-            <div className='flex flex-col gap-4' key={index}>
-              <p className='font-medium text-base leading-[138%] tracking-[-0.04em] text-grey'>{item.title}</p>
-              <div className='flex flex-col gap-4'>
-                {item.sublinks.map((sublink, subIndex) => (
-                  <Link href={sublink.url} className='flex items-center gap-3 group relative w-fit' key={subIndex}>
-                    {/* Green indicator for active/Dashboard */}
-                    {sublink.name === "Dashboard" && (
-                      <div className='absolute -left-6 md:w-2.75 w-1.5 md:h-[47px] h-[30px] bg-dark-green rounded-r-[5px]'></div>
-                    )}
-                    <div>
-                      {sublink.icon && <Icons icon={sublink.icon} className='md:size-6 size-5 group-hover:text-dark-green transition text-light-green' />}
+    // State to track the active link
+    const [activeItem, setActiveItem] = useState<string>("Dashboard");
+
+    // Prevent body scroll when sidebar is open
+    useEffect(() => {
+        document.body.style.overflow = openNav ? "hidden" : "unset";
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [openNav]);
+
+    return (
+        <>
+            {/* SIDEBAR */}
+            <aside
+                className={`w-66 p-6 bg-light-grey rounded-3xl flex flex-col justify-between gap-8 overflow-y-auto scrollbar-hide fixed top-4 lg:left-4 bottom-3 z-50 transform transition-transform duration-300 lg:translate-x-0 ${
+                    openNav ? "translate-x-0 max-lg:left-4" : "-translate-x-full max-lg:left-0"
+                }`}
+            >
+                {/* Logo */}
+                <Link href="/" className="py-4 block">
+                    <Image
+                        className="block select-none"
+                        src="/assets/images/png/logo-dashboard.png"
+                        width={180}
+                        height={83}
+                        alt="seqxio"
+                        title="seqxio"
+                    />
+                </Link>
+
+                {/* Menu */}
+                {SIDEBAR_DATA.map((section) => (
+                    <div key={section.title} className="flex flex-col gap-3.5">
+                        <p className="text-grey text-base font-medium -tracking-standart uppercase cursor-default select-none">{section.title}</p>
+                        <menu className="flex flex-col gap-4 text-xl leading-6.25 tracking-[-2%]">
+                            {section.sublinks.map((sublink) => (
+                                <li key={sublink.name} className="mt-[-0.5px]">
+                                    <Link
+                                        href={sublink.url}
+                                        onClick={() => setActiveItem(sublink.name)}
+                                        className={`w-full flex items-center gap-3 relative outline-none ${activeItem === sublink.name ? "font-medium text-black" : "text-grey hover:text-black focus:text-black transition-colors outline-none"}`}
+                                    >
+                                        {sublink.icon && (
+                                            <Icons icon={sublink.icon} className="block"/>
+                                        )}
+                                        <span className="block">{sublink.name}</span>
+                                    </Link>
+                                </li>
+                            ))}
+                        </menu>
                     </div>
-                    <div className='flex justify-between items-center w-full'>
-                      <p className='leading-120 group-hover:text-dark-green transition-colors ease-in-out duration-150 tracking-[-0.04em] text-light-green font-regular md:text-xl text-base'>
-                        {sublink.name}
-                      </p>
-                      {sublink.name === "Tasks" && (
-                        <div className='rounded-[5px] bg-dark-green w-[28px] h-[23px] flex items-center justify-center text-white font-normal tracking-[-0.04em] leading-100 text-custom-xs ms-[98px]'>
-                          12+
-                        </div>
-                      )}
+                ))}
+
+                {/* Download Section */}
+                <div className="p-4 bg-black bg-cover rounded-2xl bg-[url('/assets/images/download.webp')] cursor-default">
+                    <div className="mb-2.5 size-6.25 bg-white rounded-full flex items-center justify-center">
+                        <Icons icon="download"/>
                     </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-        {/* general */}
-        <div>
-          {generalData.map((item, index) => (
-            <div className='flex flex-col gap-4' key={index}>
-              <p className='font-medium text-base leading-[138%] tracking-[-0.04em] text-grey'>{item.title}</p>
-              <div className='flex flex-col gap-4'>
-                {item.sublinks.map((sublink, subIndex) => (
-                  
-                    <Link href={sublink.url} className='flex items-center gap-3 group' key={subIndex}>
-                      <div>
-                        {sublink.icon && <Icons icon={sublink.icon} className='md:size-6 size-5 group-hover:text-dark-green transition text-light-green' />}
-                      </div>
-                      <p className='leading-120 tracking-[-0.04em] text-light-green font-regular group-hover:text-dark-green transition-colors ease-in-out duration-150 md:text-xl text-base'>
-                        {sublink.name}
-                      </p>
-                    </Link>
-                  
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+                    <p className="max-w-40 mb-2.25 font-light text-xl leading-100 -tracking-[3%] text-white select-none"><strong className="font-semibold">Download</strong> our Mobile App</p>
+                    <p className="mb-4 text-xsm leading-100 text-white -tracking-standart select-none">Stay on track.</p>
+                    <a href="#" className="px-2.25 py-2.25 -mx-0.75 text-white bg-dark-green hover:text-dark-green hover:bg-white focus:text-dark-green focus:bg-white rounded-full block text-center text-sm font-medium leading-6 -tracking-standart transition ease-linear outline-none">
+                        Download
+                    </a>
+                </div>
 
-        {/* download */}
-        <div className='rounded-[15px] p-4 flex flex-col gap-4 bg-cover' style={{ backgroundImage: "url('/assets/images/webp/side-bar-box-bg.webp')" }}>
-          <div className='flex gap-2 flex-col'>
-            <div className='size-6.25 bg-white flex items-center justify-center rounded-full'>
-              <Icons icon='download' className='size-[16.67px]' />
-            </div>
-            <p className='font-medium text-xl leading-[108%]  tracking-[-0.04em] text-white max-w-[178px]'> <span className='font-semibold '>Download</span> our Mobile App</p>
-            <p className='tracking-[-0.04em] font-normal text-xsm text-white leading-100'>Stay on track.</p>
-          </div>
-          <button className='text-white cursor-pointer text-[14px] bg-dark-green rounded-[25px] tracking-[-0.04em] py-2.25 w-full min-h-[42px] hover:text-dark-green hover:bg-white border border-dark-green transition-colors ease-linear duration-300'>
-            Download
-          </button>
-        </div>
-      </div>
-    </>
+                {/* Close Button */}
+                <button onClick={() => setOpenNav(false)} className="lg:hidden h-fit bg-dark-green rounded-sm p-1 hover:scale-105 transition">
+                    <Icons icon="closenav"/>
+                </button>
+            </aside>
 
-  )
-}
+            {/* Blur Background */}
+            {openNav && (
+                <div
+                    className="fixed inset-0 backdrop-blur-sm bg-black/20 lg:hidden z-40 transition"
+                    onClick={() => setOpenNav(false)}
+                />
+            )}
+        </>
+    );
+};
 
-export default Sidebar
+export default Sidebar;
