@@ -20,7 +20,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
         <html lang="en">
         <body
         >
-        <div className="w-full h-screen py-3 px-4 flex gap-5">
+        <div className="w-full h-screen p-4 flex gap-5">
             <Sidebar/>
             <div className="w-full space-y-4 flex-1 lg:ps-70">
                 <Navigation/>

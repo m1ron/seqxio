@@ -103,7 +103,7 @@ const Calendar = () => {
   }
 
   return (
-    <div className="bg-white p-4 rounded-2xl w-full  sm:w-[50%] xl:w-[59.5%]">
+    <div className="bg-white p-4 rounded-2xl w-full  sm:w-[50%]">
 
       {/* Header */}
       <div className="flex justify-between items-center mb-4">

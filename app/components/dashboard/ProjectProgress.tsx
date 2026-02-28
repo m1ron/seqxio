@@ -81,7 +81,7 @@ const ProjectProgress = () => {
   }
 
   return (
-    <div className='sm:w-[50%] xl:w-[59.5%]  flex flex-col w-full rounded-[15px] bg-white p-4 overflow-clip min-h-61 overflow-hidden'>
+    <div className='sm:w-[50%] flex flex-col w-full rounded-[15px] bg-white p-4 overflow-clip min-h-61 overflow-hidden'>
       {/* <h2 className='font-medium leading-120 text-black text-xl -tracking-[0.64px] mb-4'>
         Project Progress
       </h2> */}

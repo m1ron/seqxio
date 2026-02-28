@@ -189,7 +189,7 @@ const InteractiveMap = () => {
     };
   }, []);
   return (
-    <div className='flex flex-col w-full sm:w-[50%] xl:w-[41%] bg-white p-4 rounded-[15px]  h-auto'>
+    <div className='flex flex-col w-full sm:w-[50%] bg-white p-4 rounded-[15px]  h-auto'>
       {/* <h2 className='font-medium leading-120 text-black text-xl -tracking-[0.64px] mb-4'>
         
       </h2> */}

@@ -65,7 +65,7 @@ const RecentPhotos = () => {
   };
 
   return (
-    <div className='bg-white rounded-[15px] p-4 flex flex-col gap-4 sm:w-[50%] xl:w-[41%] w-full h-full'>
+    <div className='bg-white rounded-[15px] p-4 flex flex-col gap-4 sm:w-[50%] w-full h-full'>
       <div className='flex items-center justify-between gap-2'>
         <Heading>Recent Photos</Heading>
         <Button
@@ -85,7 +85,7 @@ const RecentPhotos = () => {
           className="hidden"
         />
       </div>
-      <div className='overflow-y-auto h-[242px] scrollbar-hide'>
+      <div className='overflow-y-auto h-60.5 scrollbar-hide'>
         {photos.length === 0 ? (
           <div className='flex flex-col items-center justify-center h-full gap-3'>
             <span className='text-4xl'>📷</span>
@@ -99,7 +99,7 @@ const RecentPhotos = () => {
                   width={72}
                   height={73}
                   alt='photo'
-                  className='object-cover rounded-sm w-full h-18.25'
+                  className='object-cover rounded-sm w-full h-full aspect-square'
                 />
                 <button
                   onClick={() => handleDeletePhoto(index)}

@@ -10,7 +10,7 @@ import InteractiveMap from './InteractiveMap'
 const AllDashboard = () => {
   return (
     
-        <div className='bg-light-grey  md:py-8 md:px-6 p-4 rounded-2xl '>
+        <div className='bg-light-grey  md:py-7.5 md:px-6 p-4 rounded-2xl '>
             <div className='h-[calc(100vh-202px)] overflow-auto scrollbar-hide'>
               <div className='mb-4'>
                 <TotalProjects />
@@ -26,7 +26,7 @@ const AllDashboard = () => {
                     <RecentPhotos />
                   </div>
                 </div>
-                <div className='max-[1480px]:max-w-[265px] max-[1380px]:!max-w-[280px] max-xl:!max-w-full w-full max-xl:flex max-xl:flex-row max-sm:!flex-col gap-4 min-[1480px]:w-[45%]'>
+                <div className='w-full xl:w-[265px] max-xl:flex max-xl:flex-row max-sm:!flex-col gap-4 shrink-0'>
                   <Roads />
                   <Tracker />
                 </div>
