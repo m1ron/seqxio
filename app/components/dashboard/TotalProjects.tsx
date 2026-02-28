@@ -60,8 +60,8 @@ const TotalProjects = () => {
     <>
       <div className='flex lg:flex-row flex-col  justify-between gap-4 md:mb-8 mb-4 gap-3 md:flex-row flex-col'>
         <div>
-          <h1 className='font-medium md:text-custom-4xl text-3xl -tracking-[0.64px] text-black leading-[79%]'>Dashboard</h1>
-          <Paragraph className='md:text-xl text-base font-light leading-120 text-light-green mt-2.5'>Monitor and manage waste collection operations in real-time.</Paragraph>
+          <h1 className='font-medium md:text-custom-4xl text-3xl text-black leading-[79%] tracking-[-.04em]'>Dashboard</h1>
+          <Paragraph className='md:text-xl text-base font-light leading-120 text-light-green mt-2.5 tracking-[-.04em]'>Monitor and manage waste collection operations in real-time.</Paragraph>
         </div>
         <div className='flex sm:flex-row flex-col items-center sm:gap-4 gap-3'>
           <Button className='flex items-center gap-2 min-w-[162px]  justify-center  max-sm:w-full xl:min-h-[56px]' onClick={() => setIsAddProjectModalOpen(true)}><Image width={14} height={14} src="./assets/images/svg/plus-icon.svg" alt="plus-icon" /> Add Project</Button>
@@ -175,7 +175,7 @@ const TotalProjects = () => {
               10
             </h3>
             <div className='flex  items-center gap-2'>
-              <div className='border w-[24px] h-[20px] border-green rounded-[5px] flex items-center justify-center gap-[1.5px] bg-light-grey-100'>
+              <div className='border w-6 h-5 border-green rounded-[5px] flex items-center justify-center gap-[1.5px] bg-light-grey-100'>
                 <Paragraph className='text-green text-xs leading-100 font-normal'>
                   6
                 </Paragraph>
@@ -188,10 +188,10 @@ const TotalProjects = () => {
           </div>
         </div>
         {/* chart */}
-        <div className='max-[1480px]:max-w-[548px] max-xl:max-w-full w-full p-4 rounded-[15px] bg-white flex max-sm:flex-col justify-between gap-2 sm:h-[188px] min-[1480px]:w-[45%] overflow-x-clip'>
+        <div className='max-[1480px]:max-w-137 max-xl:max-w-full w-full p-4 rounded-[15px] bg-white flex max-sm:flex-col justify-between gap-1.5 sm:h-[188px] min-[1480px]:w-[674px] min-[1480px]:shrink-0 overflow-x-clip'>
           <div className='xlmax-w-[237px]'>
-            <Heading className='mb-4 xl:text-nowrap'>Collected Waste Summary</Heading>
-            <h3 className='text-black xl:text-custom-6xl text-5xl text-5xl font-semibold -tracking-[0.64px] leading-100 mb-4 '>
+            <Heading className='mb-4 xl:text-nowrap tracking-[-.04em]'>Collected Waste Summary</Heading>
+            <h3 className='text-black xl:text-custom-6xl text-5xl font-semibold tracking-[-.04em] leading-100 mb-4 '>
               1,284.6
             </h3>
             <div className='flex  items-center gap-2 max-sm:mb-6'>
@@ -207,7 +207,7 @@ const TotalProjects = () => {
               </p>
             </div>
           </div>
-          <div className='xl:max-w-[262px] min-[1150px]:max-w-[500px] lg:max-w-[350px] md:max-w-[400px] max-w-[262px] w-full max-sm:mx-auto'>
+          <div className='xl:max-w-none min-[1150px]:max-w-[500px] lg:max-w-[350px] md:max-w-[400px] max-w-[262px] w-full max-sm:mx-auto'>
             <WasteChart />
           </div>
         </div>

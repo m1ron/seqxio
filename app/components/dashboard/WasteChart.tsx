@@ -91,7 +91,7 @@ const WasteChart = () => {
 
             {/* TABS */}
             <div className=' flex items-center gap-1 justify-between mb-4'>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 mx-auto">
                     <div className="bg-light-grey p-0.5 rounded-sm gap-1.5 flex items-center w-fit">
                         <button
                             onClick={() => setTimeView('daily')}
@@ -138,8 +138,8 @@ const WasteChart = () => {
                 </div>
             </div>
             {/* Chart */}
-            <div className="relative scale-110 translate-y-[10px] outline-0!" style={{ outline: 'none' }}>
-                <ResponsiveContainer width="100%" height={97}>
+            <div className="relative outline-0!" style={{ outline: 'none' }}>
+                <ResponsiveContainer width="100%" height={106}>
                     <BarChart
                         data={currentData}
                         margin={{ top: 0, right: 0, left: 0, bottom: 0 }}

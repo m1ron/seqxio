@@ -29,7 +29,7 @@ const SearchBox = () => {
                         value={searchValue}
                         onChange={(e) => setSearchValue(e.target.value)}
                         onKeyDown={handleKeyDown}
-                        className="w-full outline-none pe-2"
+                        className="w-full outline-none pe-2 tracking-[-.04em]"
                     />
                 </div>
 
