@@ -26,6 +26,8 @@ const Icons: React.FC<LoginCardProps> = ({ icon, className, pathClassName }) => 
 
         download: (<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none" viewBox="0 0 17 17"><path fill="#155234" d="m8.333 16.667-2.47-2.434h-3.43v-3.43L0 8.334l2.434-2.47v-3.43h3.429L8.333 0l2.47 2.434h3.43v3.429l2.434 2.47-2.434 2.47v3.43h-3.43zm0-2.065 1.844-1.844h2.581v-2.581l1.844-1.844-1.844-1.843V3.909h-2.581L8.333 2.065 6.49 3.909H3.909v2.58L2.065 8.334l1.844 1.844v2.581h2.58zm-2.157-3.134 2.157-1.31 2.157 1.31-.571-2.453 1.917-1.659-2.526-.203-.977-2.323-.977 2.323-2.526.203 1.918 1.66z"/></svg>),
 
+        hamburger: (<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-move-right-icon lucide-move-right"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>),
+
 
 
 
@@ -58,9 +60,6 @@ const Icons: React.FC<LoginCardProps> = ({ icon, className, pathClassName }) => 
             <path fillRule="evenodd" clipRule="evenodd" d="M9.60051 19.5313C9.56942 19.308 9.7448 19.1327 9.96482 19.1327H15.5452C15.7652 19.1327 15.9406 19.308 15.9095 19.5313C15.7891 20.3843 15.2407 22.3214 12.755 22.3214C10.2694 22.3214 9.72088 20.3843 9.60051 19.5313Z" stroke="currentColor"/>
             <path fillRule="evenodd" clipRule="evenodd" d="M4.27532 19.1327C3.5706 19.1327 3.18157 18.2557 3.61444 17.7057C4.6795 16.3425 6.05386 14.2379 6.05386 12.4601C6.05386 9.56633 6.50348 6.04274 10.7621 5.07016C11.3377 4.93464 10.3635 3.18878 12.7551 3.18878C15.2567 3.18878 14.1725 4.93464 14.7481 5.07016C19.0067 6.04274 20.2535 9.56633 20.2535 12.4601C20.2535 14.2777 21.3823 16.4381 22.2225 17.8013C22.5685 18.3594 22.1723 19.1327 21.513 19.1327H4.27532Z" stroke="currentColor"/>
             </svg>
-        ),
-        navarrow: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-move-right-icon lucide-move-right"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>
         ),
         closenav: (
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>

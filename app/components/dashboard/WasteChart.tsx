@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import { useState } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts'
 import Icons from '../common/Icons'

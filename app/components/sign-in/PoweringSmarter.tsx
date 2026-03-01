@@ -17,11 +17,11 @@ const PoweringSmarter:React.FC = () => {
         />
         </Link>
 
-        <h2 className='font-normal lg:text-5xl sm:text-4xl text-3xl leading-100 text-white'>
+        <h2 className='font-normal lg:text-5xl sm:text-4xl text-3xl leading-100 text-white tracking-[.04em]'>
           Powering Smarter, Cleaner Cities
         </h2>
 
-        <div className='bg-white rounded-[5px] p-3.75'>
+        <div className='bg-white rounded-[5px] py-3.75 px-6.5'>
           <div className='flex items-center gap-4'>
             <div className='rounded-full flex items-center justify-center bg-[#F0F0F0] w-11.25 h-11.25'>
               <Icons icon='security' />
