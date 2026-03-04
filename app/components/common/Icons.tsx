@@ -34,7 +34,7 @@ const Icons: React.FC<LoginCardProps> = ({ icon, className, pathClassName }) => 
 
         security: (
             <svg width="22" height="25" viewBox="0 0 22 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6.88184 10.8335L9.46538 13.4165L14.6318 8.25" stroke="black" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M6.88184 10.8335gkllj/L9.46538 13.4165L14.6318 8.25" stroke="black" strokeLinecap="round" strokeLinejoin="round"/>
             <path d="M10.7566 23.75L11.8931 23.259C14.2759 22.2364 16.3336 20.5814 17.8432 18.4731C19.3528 16.3649 20.2567 13.8838 20.4571 11.2985L21.0127 4.16854C21.0217 3.87326 20.9291 3.58383 20.7504 3.34864C20.5716 3.11345 20.3175 2.94677 20.0306 2.87646L10.7566 0.5L1.48267 2.825C1.19585 2.89528 0.941838 3.06188 0.763088 3.29694C0.584338 3.532 0.491676 3.82129 0.500588 4.11646L1.05611 11.2465C1.25642 13.8318 2.16033 16.313 3.66992 18.4214C5.17951 20.5298 7.23722 22.1849 9.62017 23.2075L10.7566 23.75Z" stroke="black" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
         ),

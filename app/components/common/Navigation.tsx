@@ -5,14 +5,16 @@ import React from "react";
 import Image from "next/image";
 import Icons from "./Icons";
 
-import { ICONS_DATA_LIST } from "@/app/utils/helper"
-
 import useStore from "@/app/utils/store"
 import SearchBox from "./SearchBox";
 
 const Navigation = () => {
     const userName = "Ciara Thomas";
     const userEmail = "cthomas@mail.com";
+
+    const ICONS_DATA_LIST = [
+        "mailIcon", "notification"
+    ]
 
     const { setOpenNav } = useStore() as {
         openNav: boolean;

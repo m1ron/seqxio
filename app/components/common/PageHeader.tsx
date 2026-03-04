@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 
 type PageHeaderProps = {
@@ -10,7 +9,7 @@ type PageHeaderProps = {
 
 export default function PageHeader({ heading, subheading, className }: PageHeaderProps) {
     return (
-        <header className={["mb-4.5 space-y-2", className].filter(Boolean).join(" ")}>
+        <header className={`mb-4.5 space-y-2 ${className || ""}`}>
             {heading ? (
                 <h1 className="text-black font-medium text-3xl md:text-custom-4xl leading-100">
                     {heading}

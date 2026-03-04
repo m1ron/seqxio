@@ -18,6 +18,7 @@
     --color-grey: #969696;
 
     --color-light-green: #7b9182;
+    --color-greenish: #64748b;
 
     --color-green: #227d53;
     --color-lime-green: #c5ff93;
@@ -27,7 +28,11 @@
     --color-bold-grey: #666;
     --color-light-red: #dba6a9;
     --color-light-grey-100: #eff8f2;
-    --color-light-grey-200: #737373;
+    --color-light-grey-200: #e2e8f0;
+    --color-light-grey-300: #e5e7eb;
+    --color-light-grey-400: #737373;
+
+    --color-red: #ef4444;
 
     --gradient-green: linear-gradient(180deg, #155234 0%, #227d53 100%);
 
@@ -64,7 +69,24 @@
     }
 }
 
+@layer components {
+    .table {
+        @apply min-w-full border-collapse;
+    }
+    .table th {
+        @apply px-4 py-3 font-medium text-sm leading-5 text-left text-nowrap text-greenish;
+    }
+    .table td {
+        @apply px-4 py-3 text-sm leading-5;
+    }
+}
+
 @layer utilities {
+    .scrollbar-hide {
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
     .scrollbar-hide::-webkit-scrollbar {
         display: none;
     }

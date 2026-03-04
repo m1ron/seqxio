@@ -135,12 +135,12 @@ const Calendar = () => {
           )}
         </div>
       </div>
-      <div className="border border-light-grey rounded-[10px] p-2  mb-2.5 h-[245px] overflow-auto custom-scroll">
+      <div className="border border-light-grey rounded-[10px] p-2 mb-2.5 h-[245px] overflow-auto custom-scroll">
 
         {/* Week Days */}
         <div className="grid grid-cols-7 text-center text-gray-400 pb-2 ">
           {days.map((d, i) => (
-            <p key={i} className="text-light-grey-200  font-normal text-base leading-150">{d}</p>
+            <p key={i} className="text-light-grey-400  font-normal text-base leading-150">{d}</p>
           ))}
         </div>
 
