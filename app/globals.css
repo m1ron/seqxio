@@ -16,6 +16,7 @@
 
     --color-light-grey: #f7f7f7;
     --color-grey: #969696;
+    --color-cool-grey: #f3f4f6;
 
     --color-light-green: #7b9182;
     --color-greenish: #64748b;
@@ -23,6 +24,14 @@
     --color-green: #227d53;
     --color-lime-green: #c5ff93;
     --color-dark-green: #155234;
+    --color-deep-green: #166534;
+    --color-mint-green: #dcfce7;
+    --color-light-mint-green: #bbf7d0;
+
+    --color-pale-yellow: #fef9c3;
+    --color-light-yellow: #fef08a;
+
+    --color-brown: #854d0e;
 
     --color-graphite: #444;
     --color-bold-grey: #666;
@@ -32,7 +41,12 @@
     --color-light-grey-300: #e5e7eb;
     --color-light-grey-400: #737373;
 
+    --color-cool-mist: #f1f5f9;
+    --color-deep-slate: #0f172a;
+    --color-cool-white: #f8fafc;
+
     --color-red: #ef4444;
+    --color-ruby-red: #dc2626;
 
     --gradient-green: linear-gradient(180deg, #155234 0%, #227d53 100%);
 
@@ -74,12 +88,23 @@
         @apply min-w-full border-collapse;
     }
     .table th {
-        @apply px-4 py-3 font-medium text-sm leading-5 text-left text-nowrap text-greenish;
+        @apply border-b border-light-grey-300 px-4 py-3.5 font-medium text-sm leading-5 text-left text-nowrap text-greenish;
     }
     .table td {
-        @apply px-4 py-3 text-sm leading-5;
+        @apply border-b border-light-grey-300 px-4 py-4 text-sm leading-5;
+    }
+    .checkbox {
+        @apply relative overflow-hidden;
+    }
+    .checkbox input {
+        @apply absolute -top-5 -left-5;
+    }
+    .checkbox span {
+        @apply w-11 h-6 bg-light-grey-200 rounded-full block;
     }
 }
+
+
 
 @layer utilities {
     .scrollbar-hide {

@@ -75,9 +75,9 @@ const SignUpForm = () => {
   }
 
   return (
-    <div className="sm:max-w-[498px] w-full mx-auto">
-      <h2 className="text-custom-4xl leading-120 text-black font-normal mb-4">Sign in</h2>
-      <p className="font-normal text-base leading-144 text-bold-grey mb-4">Enter your email and password to login.</p>
+    <div className="sm:max-w-124.5 w-full mx-auto">
+      <h2 className="text-custom-4xl leading-120 text-black font-normal mb-4 tracking-[.03em]">Sign in</h2>
+      <p className="font-normal text-base leading-144 text-bold-grey mb-4 tracking-[0.005em]">Enter your email and password to login.</p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className='flex flex-col'>
