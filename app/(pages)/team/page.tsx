@@ -18,25 +18,25 @@ const page = () => {
     return (
         <>
 
-
-            <div className="flex ">
+            <div className="flex">
                 <PageHeader
                     heading="Teams"
                     subheading="Track crews, assignments, and operational status."
                 />
 
-                <div className="ml-auto">
-                    <label htmlFor="" className="checkbox"><input type="checkbox"/> <span></span> Live only</label>
+                <div className="ml-auto flex gap-4 items-center">
+                    <label htmlFor="live" className="checkbox text-sm leading-3.5 font-medium"><input id="live" type="checkbox"/> <span></span> Live only</label>
+                    <a href="#" className="btn">+ Add Team</a>
                 </div>
             </div>
 
             <div className="mb-4 flex gap-2">
-                <select className="min-w-45 block p-2 border border-light-grey-200 text-sm leading-normal bg-white rounded-md outline-none" name="" id="">
-                    <option value="">All zones</option>
-                </select>
-                <select className="min-w-45 block p-2 border border-light-grey-200 text-sm leading-normal bg-white rounded-md outline-none" name="" id="">
-                    <option value="">All</option>
-                </select>
+                <div className="select">
+                    <div className="select-box">All zones <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><path stroke="#020817" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.333" d="m4 6 4 4 4-4" opacity=".5"/></svg></div>
+                </div>
+                <div className="select">
+                    <div className="select-box">All <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><path stroke="#020817" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.333" d="m4 6 4 4 4-4" opacity=".5"/></svg></div>
+                </div>
                 <input className="grow block px-3 py-2 border border-light-grey-200 text-sm leading-normal bg-white rounded-md outline-none" type="text" placeholder="Search teams or members…"/>
             </div>
 
@@ -70,7 +70,7 @@ const page = () => {
                         </td>
                         <td>
                             <span className="flex items-center gap-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g stroke="#ef4444" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.333" clip-path="url(#a)"><path d="M8 14.667A6.667 6.667 0 1 0 8 1.333a6.667 6.667 0 0 0 0 13.334M8 5.333V8M8 10.667h.007"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g stroke="#ef4444" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.333" clipPath="url(#a)"><path d="M8 14.667A6.667 6.667 0 1 0 8 1.333a6.667 6.667 0 0 0 0 13.334M8 5.333V8M8 10.667h.007"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
                                 <span className="font-medium text-red">2</span>
                             </span>
                         </td>
@@ -117,13 +117,13 @@ const page = () => {
                         </td>
                         <td>
                             <span className="flex items-center gap-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g stroke="#f59e0b" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.333" clip-path="url(#a)"><path d="M8 14.667A6.667 6.667 0 1 0 8 1.333a6.667 6.667 0 0 0 0 13.334M8 5.333V8M8 10.667h.007"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g stroke="#f59e0b" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.333" clipPath="url(#a)"><path d="M8 14.667A6.667 6.667 0 1 0 8 1.333a6.667 6.667 0 0 0 0 13.334M8 5.333V8M8 10.667h.007"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
                                 <span className="text-nowrap">Stale location</span>
                             </span>
                         </td>
                         <td>
                             <span className="flex items-center gap-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g stroke="#ef4444" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.333" clip-path="url(#a)"><path d="M8 14.667A6.667 6.667 0 1 0 8 1.333a6.667 6.667 0 0 0 0 13.334M8 5.333V8M8 10.667h.007"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><g stroke="#ef4444" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.333" clipPath="url(#a)"><path d="M8 14.667A6.667 6.667 0 1 0 8 1.333a6.667 6.667 0 0 0 0 13.334M8 5.333V8M8 10.667h.007"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
                                 <span className="font-medium text-red">1</span>
                             </span>
                         </td>

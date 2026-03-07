@@ -14,24 +14,26 @@
 
     --breakpoint-custom-xl: 1480px;
 
-    --color-light-grey: #f7f7f7;
     --color-grey: #969696;
+    --color-light-grey: #f7f7f7;
     --color-cool-grey: #f3f4f6;
 
-    --color-light-green: #7b9182;
-    --color-greenish: #64748b;
-
-    --color-green: #227d53;
-    --color-lime-green: #c5ff93;
     --color-dark-green: #155234;
     --color-deep-green: #166534;
-    --color-mint-green: #dcfce7;
+    --color-green: #227d53;
+    --color-greenish: #64748b;
+    --color-light-green: #7b9182;
+    --color-lime-green: #c5ff93;
     --color-light-mint-green: #bbf7d0;
+    --color-mint-green: #dcfce7;
 
-    --color-pale-yellow: #fef9c3;
-    --color-light-yellow: #fef08a;
+    --color-midnight-blue: #020817;
+    --color-royal-blue: #1e40af;
+    --color-pale-blue: #bfdbfe;
+    --color-light-blue: #dbeafe;
 
     --color-brown: #854d0e;
+    --color-golden-brown: #ca8a04;
 
     --color-graphite: #444;
     --color-bold-grey: #666;
@@ -41,12 +43,19 @@
     --color-light-grey-300: #e5e7eb;
     --color-light-grey-400: #737373;
 
-    --color-cool-mist: #f1f5f9;
     --color-deep-slate: #0f172a;
+    --color-cool-mist: #f1f5f9;
     --color-cool-white: #f8fafc;
 
-    --color-red: #ef4444;
+    --color-dark-red: #991b1b;
     --color-ruby-red: #dc2626;
+    --color-red: #ef4444;
+
+    --color-soft-pink: #fecaca;
+    --color-light-pink: #fee2e2;
+
+    --color-light-yellow: #fef08a;
+    --color-pale-yellow: #fef9c3;
 
     --gradient-green: linear-gradient(180deg, #155234 0%, #227d53 100%);
 
@@ -69,7 +78,7 @@
 
 @layer base {
     body {
-        @apply min-w-90 bg-white antialiased;
+        @apply min-w-90 bg-white text-black antialiased;
         font-optical-sizing: auto;
         font-variation-settings: "GRAD" 0;
         text-rendering: optimizeLegibility;
@@ -84,23 +93,69 @@
 }
 
 @layer components {
+
+    /* TABLE */
     .table {
         @apply min-w-full border-collapse;
     }
     .table th {
-        @apply border-b border-light-grey-300 px-4 py-3.5 font-medium text-sm leading-5 text-left text-nowrap text-greenish;
+        @apply border-b border-light-grey-300 px-6 py-3.5 font-medium text-sm leading-5 text-left text-nowrap text-greenish;
     }
     .table td {
-        @apply border-b border-light-grey-300 px-4 py-4 text-sm leading-5;
+        @apply border-b border-light-grey-300 px-6 py-4 text-sm leading-5;
     }
+
+    /* CHECKBOX */
     .checkbox {
-        @apply relative overflow-hidden;
-    }
-    .checkbox input {
-        @apply absolute -top-5 -left-5;
+        @apply relative flex items-center cursor-pointer gap-2 outline-none;
     }
     .checkbox span {
-        @apply w-11 h-6 bg-light-grey-200 rounded-full block;
+        @apply w-11 h-6 bg-light-grey-200 rounded-full block relative;
+    }
+    .checkbox span::before {
+        @apply block absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform duration-200;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        content: '';
+    }
+    .checkbox input {
+        @apply absolute -top-5 -left-5 opacity-0;
+    }
+    .checkbox input:checked + span {
+        @apply bg-green/90;
+    }
+    .checkbox input:checked + span::before {
+        @apply translate-x-full;
+    }
+
+
+    /* SELECT */
+    .select {
+        @apply relative;
+    }
+    .select .select-box {
+        @apply min-w-45 block px-3 py-2.25 border border-light-grey-200 text-sm leading-5 bg-white rounded-md cursor-pointer outline-none;
+    }
+    .select .select-box svg {
+        @apply absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none;
+    }
+
+    /* TABS */
+    .tabs {
+        @apply bg-cool-mist rounded-md p-1 gap-1 flex items-stretch text-sm leading-5 font-medium text-greenish;
+    }
+    .tabs li a {
+        @apply py-2.5 px-3 block;
+    }
+    .tabs .active {
+        @apply bg-white rounded-md shadow-[0_1px_2px_0_rgba(0,0,0,.05)] text-midnight-blue;
+    }
+    .btn {
+        @apply py-2 px-5 rounded-[15px] text-white text-sm leading-6 font-medium;
+        background: linear-gradient(180deg, #155234 0%, #227d53 100%);
+    }
+    .btn.btn-outline {
+        @apply border border-dark-green text-dark-green;
+        background: transparent;
     }
 }
 
