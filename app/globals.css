@@ -19,8 +19,10 @@
     --color-cool-grey: #f3f4f6;
 
     --color-dark-green: #155234;
+    --color-dark-green-hover: #103e28;
     --color-deep-green: #166534;
     --color-green: #227d53;
+    --color-green-hover: #1a6341;
     --color-greenish: #64748b;
     --color-light-green: #7b9182;
     --color-lime-green: #c5ff93;
@@ -74,6 +76,7 @@
 
     --tracking-standart: 0.04em;
     --tracking-half: 0.02em;
+    --tracking-minimal: 0.01em;
 }
 
 @layer base {
@@ -96,7 +99,7 @@
 
     /* TABLE */
     .table {
-        @apply min-w-full border-collapse;
+        @apply w-full min-w-full border-collapse;
     }
     .table th {
         @apply border-b border-light-grey-300 px-6 py-3.5 font-medium text-sm leading-5 text-left text-nowrap text-greenish;
@@ -149,6 +152,8 @@
     .tabs .active {
         @apply bg-white rounded-md shadow-[0_1px_2px_0_rgba(0,0,0,.05)] text-midnight-blue;
     }
+
+    /*
     .btn {
         @apply py-2 px-5 rounded-[15px] text-white text-sm leading-6 font-medium;
         background: linear-gradient(180deg, #155234 0%, #227d53 100%);
@@ -157,6 +162,7 @@
         @apply border border-dark-green text-dark-green;
         background: transparent;
     }
+     */
 }
 
 
