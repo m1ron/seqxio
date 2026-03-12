@@ -1,6 +1,6 @@
 import React from "react";
 import PageHeader from "@/app/components/common/PageHeader";
-import Table from "@/app/components/common/Table";
+import Table from "@/app/components/ui/Table";
 import Button from "@/app/components/ui/Button";
 
 type Status = {

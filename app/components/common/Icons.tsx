@@ -12,6 +12,9 @@ interface LoginCardProps {
 
 const Icons: React.FC<LoginCardProps> = ({ icon, className, pathClassName }) => {
     const iconList = {
+        hamburger: (<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-move-right-icon lucide-move-right"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>),
+        download: (<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none" viewBox="0 0 17 17"><path fill="#155234" d="m8.333 16.667-2.47-2.434h-3.43v-3.43L0 8.334l2.434-2.47v-3.43h3.429L8.333 0l2.47 2.434h3.43v3.429l2.434 2.47-2.434 2.47v3.43h-3.43zm0-2.065 1.844-1.844h2.581v-2.581l1.844-1.844-1.844-1.843V3.909h-2.581L8.333 2.065 6.49 3.909H3.909v2.58L2.065 8.334l1.844 1.844v2.581h2.58zm-2.157-3.134 2.157-1.31 2.157 1.31-.571-2.453 1.917-1.659-2.526-.203-.977-2.323-.977 2.323-2.526.203 1.918 1.66z"/></svg>),
+
         dashboard: (<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" viewBox="0 0 25 25"><path fill="url(#a)" d="M13.889 6.944V1.39q0-.591.4-.99.399-.399.989-.399h8.333q.59 0 .989.399.4.399.4.99v5.555q0 .591-.4.99a1.34 1.34 0 0 1-.989.4h-8.333a1.34 1.34 0 0 1-.99-.4 1.34 1.34 0 0 1-.4-.99M0 12.5V1.389q0-.591.4-.99Q.798 0 1.389 0h8.333q.591 0 .99.399.4.399.4.99V12.5q0 .59-.4.989-.399.4-.99.4H1.39a1.34 1.34 0 0 1-.989-.4A1.34 1.34 0 0 1 0 12.5m13.889 11.111V12.5q0-.59.4-.99.399-.399.989-.399h8.333q.59 0 .989.399.4.4.4.99v11.111q0 .59-.4.989a1.34 1.34 0 0 1-.989.4h-8.333a1.34 1.34 0 0 1-.99-.4 1.34 1.34 0 0 1-.4-.989M0 23.611v-5.555q0-.591.4-.99.398-.4.989-.4h8.333q.591 0 .99.4.4.399.4.99v5.555q0 .59-.4.989-.399.4-.99.4H1.39a1.34 1.34 0 0 1-.989-.4 1.34 1.34 0 0 1-.4-.989"/><defs><linearGradient id="a" x1="12.5" x2="12.5" y1="0" y2="25" gradientUnits="userSpaceOnUse"><stop stopColor="#155234"/><stop offset="1" stopColor="#227d53"/></linearGradient></defs></svg>),
         map: (<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" viewBox="0 0 25 25"><path stroke="#7b9182" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12.5 13.542c1.506 0 2.724-.947 3.012-2.373.242-1.138-.402-2.294-1.538-2.8-1.136-.504-2.501-.208-3.331.657s-1.168 2.094-.779 3.208 1.421 1.808 2.636 1.308"/><path stroke="#7b9182" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12.5 2.083c4.687 0 8.333 3.021 8.333 7.292 0 2.365-1.328 4.781-3.213 6.797-1.48 1.588-3.402 3.14-5.12 6.745-1.719-3.605-3.64-5.157-5.12-6.745-1.885-2.016-3.213-4.432-3.213-6.797 0-4.27 3.645-7.292 8.333-7.292"/></svg>),
         projects: (<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" viewBox="0 0 25 25"><g stroke="#7b9182" strokeLinecap="round" strokeWidth="2" clipPath="url(#a)"><path d="M2 10c0-3.771 0-5.657 1.172-6.828S6.229 2 10 2h3.353c1.635 0 2.453 0 3.188.304.735.305 1.313.883 2.469 2.04l2.647 2.646c1.156 1.156 1.734 1.734 2.038 2.47.305.734.305 1.552.305 3.187V16c0 3.771 0 5.657-1.172 6.828S19.771 24 16 24h-6c-3.771 0-5.657 0-6.828-1.172S2 19.771 2 16z"/><path d="M15.445 2.611v5.945a2 2 0 0 0 2 2h5.944M9.333 19.111h7.334M9.333 14.222h7.334M9.333 9.333h1.223"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h25v25H0z"/></clipPath></defs></svg>),
@@ -24,11 +27,8 @@ const Icons: React.FC<LoginCardProps> = ({ icon, className, pathClassName }) => 
         help: (<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" viewBox="0 0 25 25"><path stroke="#7b9182" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.469 9.375a3.125 3.125 0 0 1 6.073 1.042c0 2.083-3.125 3.125-3.125 3.125m.083 4.166h.01M22.918 12.5c0 5.753-4.664 10.417-10.417 10.417S2.084 18.253 2.084 12.5 6.747 2.083 12.5 2.083 22.917 6.747 22.917 12.5"/></svg>),
         logout: (<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="#7b9182" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m16 17 3.586-3.586a2 2 0 0 0 0-2.828L16 7"/><path stroke="#7b9182" strokeLinecap="round" strokeWidth="2" d="M8 21a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4M9 12h11"/></svg>),
 
-        download: (<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none" viewBox="0 0 17 17"><path fill="#155234" d="m8.333 16.667-2.47-2.434h-3.43v-3.43L0 8.334l2.434-2.47v-3.43h3.429L8.333 0l2.47 2.434h3.43v3.429l2.434 2.47-2.434 2.47v3.43h-3.43zm0-2.065 1.844-1.844h2.581v-2.581l1.844-1.844-1.844-1.843V3.909h-2.581L8.333 2.065 6.49 3.909H3.909v2.58L2.065 8.334l1.844 1.844v2.581h2.58zm-2.157-3.134 2.157-1.31 2.157 1.31-.571-2.453 1.917-1.659-2.526-.203-.977-2.323-.977 2.323-2.526.203 1.918 1.66z"/></svg>),
-
-        hamburger: (<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-move-right-icon lucide-move-right"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>),
-
-
+        dots: (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="#020817" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.333" d="M8 8.667a.667.667 0 1 0 0-1.334.667.667 0 0 0 0 1.334M8 4a.667.667 0 1 0 0-1.333A.667.667 0 0 0 8 4M8 13.333A.667.667 0 1 0 8 12a.667.667 0 0 0 0 1.333"/></svg>),
+        issues: (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="#dc2626" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.333" d="M14.487 12 9.153 2.667a1.333 1.333 0 0 0-2.32 0L1.5 12a1.333 1.333 0 0 0 1.167 2h10.666a1.333 1.333 0 0 0 1.154-2M8 6v2.667M8 11.333h.007"/></svg>),
 
 
 
@@ -93,10 +93,9 @@ const Icons: React.FC<LoginCardProps> = ({ icon, className, pathClassName }) => 
             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M21.875 21.875L17.3438 17.3438M19.7917 11.4583C19.7917 16.0607 16.0607 19.7917 11.4583 19.7917C6.85596 19.7917 3.125 16.0607 3.125 11.4583C3.125 6.85596 6.85596 3.125 11.4583 3.125C16.0607 3.125 19.7917 6.85596 19.7917 11.4583Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-
         ),
-
     };
+
     const addClassName = (
         icon: ReactElement<SVGElement>
     ): ReactElement<SVGElement> => {

@@ -21,7 +21,9 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
         <body>
         <div className="w-full min-h-screen p-4 xl:py-3 flex gap-5">
 
-            <div className="w-full flex flex-col gap-4 flex-1">
+            <Sidebar/>
+
+            <div className="w-full flex flex-col gap-4 flex-1 lg:ps-70">
                 <Navigation/>
 
                 <article className="w-full bg-light-grey p-4 md:p-6 flex flex-col flex-1 rounded-3xl">
