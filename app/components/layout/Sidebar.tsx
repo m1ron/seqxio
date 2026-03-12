@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import Icons from "./Icons";
+import Icons from "../common/Icons";
 import useStore from "@/app/utils/store";
 
 export const MENU = [
@@ -61,7 +61,7 @@ export default function SideBar() {
             >
 
                 {/* Logo */}
-                <Link href="/" className="py-4 block">
+                <Link href="/public" className="py-4 block">
                     <Image
                         className="block select-none"
                         src="/assets/images/png/logo-dashboard.png"

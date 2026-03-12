@@ -3,10 +3,10 @@
 import React from "react";
 
 import Image from "next/image";
-import Icons from "./Icons";
+import Icons from "../common/Icons";
 
 import useStore from "@/app/utils/store"
-import SearchBox from "./SearchBox";
+import SearchBox from "../common/SearchBox";
 
 const Navigation = () => {
     const userName = "Ciara Thomas";

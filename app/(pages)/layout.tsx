@@ -2,8 +2,8 @@ import "../globals.css";
 
 import { Metadata } from "next";
 
-import Sidebar from "../components/common/Sidebar";
-import Navigation from "../components/common/Navigation";
+import Sidebar from "../components/layout/Sidebar";
+import Navigation from "../components/layout/Navigation";
 
 export const metadata: Metadata = {
     title: "Dashboard | seqxio",

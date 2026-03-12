@@ -31,14 +31,18 @@
 
     --color-midnight-blue: #020817;
     --color-royal-blue: #1e40af;
+    --color-dodger-blue: #3b82f6;
     --color-pale-blue: #bfdbfe;
     --color-light-blue: #dbeafe;
+    --color-alice-blue: #eff6ff;
 
     --color-brown: #854d0e;
     --color-golden-brown: #ca8a04;
 
     --color-graphite: #444;
     --color-bold-grey: #666;
+    --color-charcoal-grey: #4B5563;
+    --color-gunmetal: #111827;
     --color-light-red: #dba6a9;
     --color-light-grey-100: #eff8f2;
     --color-light-grey-200: #e2e8f0;
@@ -153,16 +157,18 @@
         @apply bg-white rounded-md shadow-[0_1px_2px_0_rgba(0,0,0,.05)] text-midnight-blue;
     }
 
-    /*
     .btn {
-        @apply py-2 px-5 rounded-[15px] text-white text-sm leading-6 font-medium;
+        @apply border border-transparent py-1.75 px-4 rounded-[15px] text-white text-sm leading-6 font-medium text-center;
         background: linear-gradient(180deg, #155234 0%, #227d53 100%);
     }
     .btn.btn-outline {
-        @apply border border-dark-green text-dark-green;
+        @apply border-dark-green text-dark-green;
         background: transparent;
     }
-     */
+
+    .form-control {
+        @apply w-full border border-light-grey-200 rounded-md px-3 py-2.75 text-base md:text-sm leading-4 text-midnight-blue focus:border-royal-blue/80 focus:outline-none;
+    }
 }
 
 
