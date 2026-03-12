@@ -1,10 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
+
 import Icons from "@/app/components/common/Icons";
 import PageHeader from "@/app/components/common/PageHeader";
 import Table from "@/app/components/ui/Table";
 import Tabs from "@/app/components/ui/Tabs";
+import Select from "@/app/components/ui/Select";
+
 import { projectsData, type ProjectRow, type ProjectStatusColor } from "@/app/components/projects/projects.data";
 
 type ProjectsTableProps = {
@@ -118,47 +121,29 @@ export default function ProjectsTable({ heading, subheading, }: ProjectsTablePro
       <PageHeader heading={heading} subheading={subheading}/>
 
       <div className="mb-4 flex max-md:flex-col gap-2 md:items-end">
-        <div className="space-y-1.25">
-          <span className="text-midnight-blue text-medium text-sm leading-5 tracking-half block">
-            Status
-          </span>
-          <div className="select">
-            <div className="select-box">
-              All
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
-              <path
-                stroke="#020817"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.333"
-                d="m4 6 4 4 4-4"
-                opacity=".5"
-              />
-              </svg>
-            </div>
-          </div>
-        </div>
+        <Select
+          label="Status"
+          defaultValue="all"
+          options={[
+            { label: "All", value: "all" },
+            { label: "On Track", value: "on-track" },
+            { label: "At Risk", value: "at-risk" },
+            { label: "Completed", value: "completed" },
+            { label: "Critical", value: "critical" },
+            { label: "In Progress", value: "in-progress" },
+          ]}
+        />
 
-        <div className="space-y-1.25">
-          <span className="text-midnight-blue text-medium text-sm leading-5 tracking-half block">
-            Zone
-          </span>
-          <div className="select">
-            <div className="select-box">
-              All zones
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
-              <path
-                stroke="#020817"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.333"
-                d="m4 6 4 4 4-4"
-                opacity=".5"
-              />
-              </svg>
-            </div>
-          </div>
-        </div>
+        <Select
+          label="Zone"
+          defaultValue="all-zones"
+          options={[
+            { label: "All zones", value: "all-zones" },
+            { label: "Zone A", value: "zone-a" },
+            { label: "Zone B", value: "zone-b" },
+            { label: "Zone C", value: "zone-c" },
+          ]}
+        />
 
         <Tabs
           tabs={[

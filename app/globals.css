@@ -41,7 +41,7 @@
 
     --color-graphite: #444;
     --color-bold-grey: #666;
-    --color-charcoal-grey: #4B5563;
+    --color-charcoal-grey: #4b5563;
     --color-gunmetal: #111827;
     --color-light-red: #dba6a9;
     --color-light-grey-100: #eff8f2;
@@ -91,7 +91,6 @@
         text-rendering: optimizeLegibility;
     }
 
-
     :-webkit-autofill, :-webkit-autofill:hover, :-webkit-autofill:focus, :-webkit-autofill:active {
         -webkit-box-shadow: 0 0 0 1000px white inset !important;
         -webkit-text-fill-color: black !important;
@@ -134,29 +133,66 @@
         @apply translate-x-full;
     }
 
-
     /* SELECT */
     .select {
         @apply relative;
     }
     .select .select-box {
-        @apply min-w-45 block px-3 py-2.25 border border-light-grey-200 text-sm leading-5 bg-white rounded-md cursor-pointer outline-none;
+        @apply min-w-45 block px-3 py-2.25 border border-light-grey-200 text-sm leading-5 bg-white rounded-md cursor-pointer outline-none transition-colors;
     }
-    .select .select-box svg {
+    .select .select-box.is-open {
+        @apply border-light-grey-300;
+    }
+    .select .select-box svg,
+    .select .select-box .custom-class {
         @apply absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none;
+    }
+    .select .select-dropdown {
+        @apply absolute top-full left-0 z-20 mt-1 w-full rounded-xl border border-light-grey-200 bg-white p-1.5;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+        transform-origin: top center;
+        transition: opacity 180ms ease, transform 180ms ease;
+    }
+    .select .select-dropdown.is-open {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+    }
+    .select .select-dropdown.is-closed {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.96);
+        pointer-events: none;
+    }
+    .select .select-option {
+        @apply flex w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm leading-5 text-midnight-blue cursor-pointer transition-colors;
+    }
+    .select .select-option:hover {
+        @apply bg-cool-mist;
+    }
+    .select .select-option.active {
+        @apply bg-cool-mist;
+    }
+    .select .select-dropdown:hover .select-option.active:not(:hover) {
+        background: transparent;
     }
 
     /* TABS */
     .tabs {
         @apply bg-cool-mist rounded-md p-1 gap-1 flex items-stretch text-sm leading-5 font-medium text-greenish;
     }
-    .tabs li a {
-        @apply py-2.5 px-3 block;
+    .tabs li {
+        @apply rounded-md transition-all duration-200 ease-out;
+    }
+    .tabs li a,
+    .tabs li button {
+        @apply py-2.5 px-3 block transition-colors duration-200 ease-out;
     }
     .tabs .active {
-        @apply bg-white rounded-md shadow-[0_1px_2px_0_rgba(0,0,0,.05)] text-midnight-blue;
+        @apply bg-white rounded-md text-midnight-blue;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     }
 
+    /* BUTTON */
     .btn {
         @apply border border-transparent py-1.75 px-4 rounded-[15px] text-white text-sm leading-6 font-medium text-center;
         background: linear-gradient(180deg, #155234 0%, #227d53 100%);
@@ -170,8 +206,6 @@
         @apply w-full border border-light-grey-200 rounded-md px-3 py-2.75 text-base md:text-sm leading-4 text-midnight-blue focus:border-royal-blue/80 focus:outline-none;
     }
 }
-
-
 
 @layer utilities {
     .scrollbar-hide {
@@ -194,5 +228,16 @@
     .custom-scroll::-webkit-scrollbar-thumb {
         background: #5fbd92;
         border-radius: 10px;
+    }
+}
+
+@keyframes select-dropdown-in {
+    from {
+        opacity: 0;
+        transform: translateY(-6px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }

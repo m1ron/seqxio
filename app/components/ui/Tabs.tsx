@@ -10,11 +10,11 @@ type TabOption = {
 type TabsProps = {
   tabs: TabOption[];
   activeTab?: string;
-  onChange?: (value: string) => void;
+  onChangeAction?: (value: string) => void;
   className?: string;
 };
 
-const Tabs = ({ tabs, activeTab, onChange, className = "" }: TabsProps) => {
+const Tabs = ({ tabs, activeTab, onChangeAction, className = "" }: TabsProps) => {
   const [internalActiveTab, setInternalActiveTab] = useState(tabs[0]?.value);
 
   const currentActiveTab = activeTab ?? internalActiveTab;
@@ -24,7 +24,7 @@ const Tabs = ({ tabs, activeTab, onChange, className = "" }: TabsProps) => {
       setInternalActiveTab(value);
     }
 
-    onChange?.(value);
+    onChangeAction?.(value);
   };
 
   return (
