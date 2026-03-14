@@ -67,7 +67,7 @@ export const projectsData: ProjectRow[] = [
       color: "red",
     },
     assignedTeam: "Unassigned",
-    assignedTeamClassName: "text-golden-brown",
+    assignedTeamClassName: "text-golden-brown font-medium",
     startTime: "Nov 25 · 8:00 AM",
     roads: [],
     issues: "5",

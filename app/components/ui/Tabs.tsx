@@ -28,16 +28,16 @@ const Tabs = ({ tabs, activeTab, onChangeAction, className = "" }: TabsProps) =>
   };
 
   return (
-    <ul className={`tabs ${className}`.trim()}>
+    <ul className={`p-1 inline-flex items-stretch gap-1 text-sm leading-5 tracking-minimal font-medium text-greenish bg-cool-mist rounded-md ${className}`.trim()}>
       {tabs.map((tab) => (
         <li
           key={tab.value}
-          className={currentActiveTab === tab.value ? "active" : ""}
+          className={`rounded-md transition-all duration-200 ease-out ${currentActiveTab === tab.value ? "bg-white text-midnight-blue shadow-sm" : ""}`}
         >
           <button
             type="button"
             onClick={() => handleTabClick(tab.value)}
-            className="py-2.5 px-3 block cursor-pointer"
+            className="py-2.5 px-3 block transition-colors duration-200 ease-out cursor-pointer"
           >
             {tab.label}
           </button>

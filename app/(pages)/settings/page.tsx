@@ -1,6 +1,7 @@
 import React from 'react'
-
 import PageHeader from "@/app/components/common/PageHeader";
+import Button from "@/app/components/ui/Button";
+import SettingsMenu from "@/app/components/settings/SettingsMenu";
 
 import { Metadata } from 'next';
 
@@ -14,6 +15,17 @@ export const metadata: Metadata = {
     },
 };
 
+const settingsMenuItems = [
+    { label: "Profile", href: "/settings", active: true },
+    { label: "Notifications", href: "#" },
+    { label: "Display & Units", href: "#" },
+    { label: "Team & Roles", href: "#" },
+    { label: "Zones", href: "#" },
+    { label: "Map & Tracking", href: "#" },
+    { label: "Data & Integrations", href: "#" },
+    { label: "Security", href: "#" },
+];
+
 const page = () => {
     return (
         <>
@@ -24,61 +36,58 @@ const page = () => {
 
             <div className="flex max-md:flex-col gap-6 md:gap-8">
                 <div className="lg:w-69.75 shrink-0">
-                    <ul className="text-sm leading-5 text-charcoal-grey font-medium space-y-1">
-                        <li><a className="py-2 px-3 block bg-light-grey-300 text-gunmetal rounded-md" href="#">Profile</a></li>
-                        <li><a className="py-2 px-3 block hover:bg-cool-grey rounded-md" href="#">Notifications</a></li>
-                        <li><a className="py-2 px-3 block hover:bg-cool-grey rounded-md" href="#">Display &amp; Units</a></li>
-                        <li><a className="py-2 px-3 block hover:bg-cool-grey rounded-md" href="#">Team &amp; Roles</a></li>
-                        <li><a className="py-2 px-3 block hover:bg-cool-grey rounded-md" href="#">Zones</a></li>
-                        <li><a className="py-2 px-3 block hover:bg-cool-grey rounded-md" href="#">Map &amp; Tracking</a></li>
-                        <li><a className="py-2 px-3 block hover:bg-cool-grey rounded-md" href="#">Data &amp; Integrations</a></li>
-                        <li><a className="py-2 px-3 block hover:bg-cool-grey rounded-md" href="#">Security</a></li>
-                    </ul>
+                    <SettingsMenu items={settingsMenuItems} />
                 </div>
                 <div className="grow space-y-6">
-                    <div className="bg-white border border-light-grey-300 rounded-lg p-6 space-y-7.5">
-                        <h3 className="text-[24px] leading-none text-midnight-blue font-semibold">Account</h3>
+                    <form
+                        className="bg-white border border-light-grey-300 rounded-lg p-6 space-y-7.5"
+                        action="/settings"
+                    >
+                        <h3 className="text-2xl font-semibold leading-none text-midnight-blue">Account</h3>
 
                         <div className="space-y-5.5">
                             <div className="space-y-3">
                                 <label className="text-sm font-medium leading-none tracking-minimal peer-disabled:cursor-not-allowed peer-disabled:opacity-70 block" htmlFor="full-name">Full name</label>
-                                <input className="form-control" id="full-name" value="John Doe"/>
+                                <input className="input w-full" id="full-name" type="text" defaultValue="John Doe"/>
                             </div>
                             <div className="space-y-3">
                                 <label className="text-sm font-medium leading-none tracking-minimal peer-disabled:cursor-not-allowed peer-disabled:opacity-70 block" htmlFor="email">Email</label>
-                                <input className="form-control" id="email" value="john.doe@example.com"/>
+                                <input className="input w-full" id="email" type="text" defaultValue="john.doe@example.com"/>
                             </div>
                             <div className="space-y-3">
                                 <label className="text-sm font-medium leading-none tracking-minimal peer-disabled:cursor-not-allowed peer-disabled:opacity-70 block" htmlFor="role">Role</label>
-                                <input className="form-control" id="role" value="Dispatcher"/>
+                                <input className="input w-full" id="role" type="text" defaultValue="Dispatcher"/>
                             </div>
                         </div>
                         <div className="mt-12 flex justify-end">
-                            <button className="btn px-4">Save changes</button>
+                            <Button type="submit">Save changes</Button>
                         </div>
-                    </div>
+                    </form>
 
-                    <div className="bg-white border border-light-grey-300 rounded-lg p-6 space-y-7.5">
-                        <h3 className="text-[24px] leading-none text-midnight-blue font-semibold">Password</h3>
+                    <form
+                        className="bg-white border border-light-grey-300 rounded-lg p-6 space-y-7.5"
+                        action="/settings"
+                    >
+                        <h3 className="text-2xl font-semibold leading-none text-midnight-blue">Password</h3>
 
                         <div className="space-y-5.5">
                             <div className="space-y-3">
-                                <label className="text-sm font-medium leading-none tracking-minimal peer-disabled:cursor-not-allowed peer-disabled:opacity-70 block" htmlFor="full-name">Current password</label>
-                                <input className="form-control" id="full-name" value="John Doe"/>
+                                <label className="text-sm font-medium leading-none tracking-minimal peer-disabled:cursor-not-allowed peer-disabled:opacity-70 block" htmlFor="current-password">Current password</label>
+                                <input className="input w-full" id="current-password" type="password" defaultValue=""/>
                             </div>
                             <div className="space-y-3">
-                                <label className="text-sm font-medium leading-none tracking-minimal peer-disabled:cursor-not-allowed peer-disabled:opacity-70 block" htmlFor="email">New password</label>
-                                <input className="form-control" id="email" value="john.doe@example.com"/>
+                                <label className="text-sm font-medium leading-none tracking-minimal peer-disabled:cursor-not-allowed peer-disabled:opacity-70 block" htmlFor="new-password">New password</label>
+                                <input className="input w-full" id="new-password" type="password" defaultValue=""/>
                             </div>
                             <div className="space-y-3">
-                                <label className="text-sm font-medium leading-none tracking-minimal peer-disabled:cursor-not-allowed peer-disabled:opacity-70 block" htmlFor="role">Confirm new password</label>
-                                <input className="form-control" id="role" value="Dispatcher"/>
+                                <label className="text-sm font-medium leading-none tracking-minimal peer-disabled:cursor-not-allowed peer-disabled:opacity-70 block" htmlFor="confirm-password">Confirm new password</label>
+                                <input className="input w-full" id="confirm-password" type="password" defaultValue=""/>
                             </div>
                         </div>
                         <div className="mt-12 flex justify-end">
-                            <button className="btn px-4">Update password</button>
+                            <Button type="submit">Update password</Button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </>

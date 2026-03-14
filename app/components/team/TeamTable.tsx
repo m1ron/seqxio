@@ -1,27 +1,10 @@
 import React from "react";
 import PageHeader from "@/app/components/common/PageHeader";
-import Table from "@/app/components/ui/Table";
+import Toggle from "@/app/components/ui/Toggle";
 import Button from "@/app/components/ui/Button";
-
-type Status = {
-    text: string;
-    color: "on" | "off" | "red";
-};
-
-type Location = {
-    text: string;
-    icon?: "alert";
-};
-
-export type TeamRow = {
-    name: string;
-    title: string;
-    status: Status;
-    assignment?: string;
-    time?: string;
-    location: Location;
-    issues?: string;
-};
+import Select from "@/app/components/ui/Select";
+import Table from "@/app/components/ui/Table";
+import { teamData, type TeamRow } from "@/app/components/team/team.data";
 
 type TeamTableProps = {
     heading: string;
@@ -40,7 +23,7 @@ const columns = [
         render: (row: TeamRow) => (
             <>
                 <span className="block font-medium text-nowrap">{row.name}</span>
-                <span className="block font-medium text-nowrap text-greenish tracking-[0.01em]">{row.title}</span>
+                <span className="block font-medium text-nowrap text-greenish tracking-minimal">{row.title}</span>
             </>
         ),
     },
@@ -48,7 +31,7 @@ const columns = [
         header: "Status",
         render: (row: TeamRow) => (
             <>
-                <span className={`px-2.5 py-0.5 text-xs font-semibold text-nowrap tracking-[0.01em] inline-block border rounded-full cursor-default ${statusStyles[row.status.color]}`}>
+                <span className={`px-2.5 py-0.5 text-xs font-semibold text-nowrap tracking-minimal inline-block border rounded-full cursor-default ${statusStyles[row.status.color]}`}>
                     {row.status.text}
                 </span>
             </>
@@ -99,56 +82,12 @@ const columns = [
         header: "Actions",
         className: "text-right",
         render: () => (
-            <button className="float-right flex justify-center items-center size-10 bg-white hover:bg-cool-grey focus:bg-cool-grey transition-colors border border-light-grey-200 rounded-2xl cursor-pointer outline-none">
+            <button className="float-right flex justify-center items-center size-10 bg-white hover:bg-light-grey-100 focus:bg-light-grey-100 transition-colors border border-light-grey-200 rounded-2xl cursor-pointer outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><path stroke="#020817" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.333" d="M8 8.667a.667.667 0 1 0 0-1.334.667.667 0 0 0 0 1.334M8 4a.667.667 0 1 0 0-1.333A.667.667 0 0 0 8 4M8 13.333A.667.667 0 1 0 8 12a.667.667 0 0 0 0 1.333"/></svg>
             </button>
         ),
     },
 ];
-
-const data: TeamRow[] = [
-    {
-        name: "Crew A",
-        title: "North · 4 members",
-        status: {
-            text: "On Duty",
-            color: "on",
-        },
-        assignment: "Westside Bulk Pickup",
-        time: "8:00 AM",
-        location: {
-            text: "Last ping: 4&nbsp;min&nbsp;ago",
-        },
-        issues: "2",
-    },
-    {
-        name: "Crew B",
-        title: "South · 5 members",
-        status: {
-            text: "Off Duty",
-            color: "off",
-        },
-        time: "No active assignment",
-        location: {
-            text: "Last ping: 2&nbsp;hours&nbsp;ago",
-        },
-    },
-    {
-        name: "Crew C",
-        title: "East · 3 members",
-        status: {
-            text: "Needs Attention",
-            color: "red",
-        },
-        assignment: "Downtown Cleanup",
-        time: "9:30 AM",
-        location: {
-            text: "Stale&nbsp;location",
-            icon: "alert",
-        },
-        issues: "1",
-    },
-] satisfies TeamRow[];
 
 export default function TeamTable({ heading, subheading }: TeamTableProps) {
     return (
@@ -157,23 +96,41 @@ export default function TeamTable({ heading, subheading }: TeamTableProps) {
                 heading={heading}
                 subheading={subheading}
             >
-                <label htmlFor="live" className="checkbox text-sm leading-3.5 font-medium"><input id="live" type="checkbox" /> <span></span> Live only</label>
+                <Toggle id="live" label="Live only"/>
                 <Button>+ Add Team</Button>
             </PageHeader>
 
             <div className="mb-4 flex max-md:flex-col gap-2">
-                <div className="select">
-                    <div className="select-box">All zones <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><path stroke="#020817" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.333" d="m4 6 4 4 4-4" opacity=".5"/></svg></div>
-                </div>
-                <div className="select">
-                    <div className="select-box">All <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><path stroke="#020817" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.333" d="m4 6 4 4 4-4" opacity=".5"/></svg></div>
-                </div>
-                <input className="grow block px-3 py-2 border border-light-grey-200 text-sm leading-normal bg-white rounded-md outline-none" type="text" placeholder="Search teams or members…"/>
+                <Select
+                    className="min-w-45"
+                    defaultValue="all-zones"
+                    options={[
+                        { label: "All zones", value: "all-zones" },
+                        { label: "North", value: "north" },
+                        { label: "South", value: "south" },
+                        { label: "East", value: "east" },
+                    ]}
+                />
+                <Select
+                    className="min-w-45"
+                    defaultValue="all"
+                    options={[
+                        { label: "All", value: "all" },
+                        { label: "On Duty", value: "on-duty" },
+                        { label: "Off Duty", value: "off-duty" },
+                        { label: "Needs Attention", value: "needs-attention" },
+                    ]}
+                />
+                <input
+                    className="input block grow"
+                    type="text"
+                    placeholder="Search teams or members…"
+                />
             </div>
 
             <Table
                 columns={columns}
-                data={data}
+                data={teamData}
             />
         </>
     );

@@ -33,22 +33,22 @@ const page = () => {
                 <TotalProjects/>
             </div>
 
-                <div className="flex flex-col xl:flex-row gap-4">
-                    <div className="w-full flex flex-col gap-4">
-                        <div className="flex sm:flex-row flex-col gap-4">
-                            <ProjectProgress/>
-                            <InteractiveMap/>
-                        </div>
-                        <div className="flex sm:flex-row flex-col items-center gap-4 justify-between">
-                            <Calender/>
-                            <RecentPhotos/>
-                        </div>
+            <div className="flex flex-col xl:flex-row gap-4">
+                <div className="w-full flex flex-col gap-4">
+                    <div className="flex sm:flex-row flex-col gap-4">
+                        <ProjectProgress/>
+                        <InteractiveMap/>
                     </div>
-                    <div className="w-full xl:w-[265px] max-xl:flex max-xl:flex-row max-sm:!flex-col gap-4 shrink-0">
-                        <Roads/>
-                        <Tracker/>
+                    <div className="flex sm:flex-row flex-col items-center gap-4 justify-between">
+                        <Calender/>
+                        <RecentPhotos/>
                     </div>
                 </div>
+                <div className="w-full xl:w-[265px] max-xl:flex max-xl:flex-row max-sm:!flex-col gap-4 shrink-0">
+                    <Roads/>
+                    <Tracker/>
+                </div>
+            </div>
         </>
     )
 }

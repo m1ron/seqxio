@@ -140,7 +140,7 @@ const Calendar = () => {
         {/* Week Days */}
         <div className="grid grid-cols-7 text-center text-gray-400 pb-2 ">
           {days.map((d, i) => (
-            <p key={i} className="text-light-grey-400  font-normal text-base leading-150">{d}</p>
+            <p key={i} className="text-light-grey-600  font-normal text-base leading-150">{d}</p>
           ))}
         </div>
 

@@ -9,6 +9,7 @@ import Tabs from "@/app/components/ui/Tabs";
 import Select from "@/app/components/ui/Select";
 
 import { projectsData, type ProjectRow, type ProjectStatusColor } from "@/app/components/projects/projects.data";
+import Button from "@/app/components/ui/Button";
 
 type ProjectsTableProps = {
   heading: string;
@@ -38,7 +39,7 @@ function RoadsList({ roads }: { roads: string[] }) {
       {visibleRoads.map((road) => (
         <span
           key={road}
-          className="px-2 py-0.5 border border-transparent bg-cool-mist rounded-full inline-block text-xs leading-4 text-nowrap cursor-default"
+          className="px-2.5 py-0.5 border border-transparent bg-cool-mist rounded-full inline-block text-xs leading-4 text-nowrap cursor-default"
         >
           {road}
         </span>
@@ -48,7 +49,7 @@ function RoadsList({ roads }: { roads: string[] }) {
         <button
           type="button"
           onClick={() => setExpanded(true)}
-          className="px-2 py-0.5 border border-light-grey-300 bg-transparent rounded-full inline-block text-xs leading-4 text-nowrap cursor-pointer hover:bg-cool-mist transition-colors"
+          className="px-2.5 py-0.5 border border-light-grey-300 bg-transparent rounded-full inline-block text-xs leading-4 text-nowrap hover:bg-cool-mist focus:bg-cool-mist transition-colors cursor-pointer outline-none"
         >
           +{hiddenCount} more
         </button>
@@ -108,7 +109,7 @@ const columns = [
     header: "Actions",
     className: "text-right",
     render: () => (
-      <button className="float-right flex justify-center items-center size-10 bg-white hover:bg-cool-grey focus:bg-cool-grey transition-colors border border-light-grey-200 rounded-2xl cursor-pointer outline-none">
+      <button className="float-right flex justify-center items-center size-10 bg-white hover:bg-light-grey-100 focus:bg-light-grey-100 transition-colors border border-light-grey-200 rounded-2xl cursor-pointer outline-none">
         <Icons icon="dots"/>
       </button>
     ),
@@ -118,43 +119,57 @@ const columns = [
 export default function ProjectsTable({ heading, subheading, }: ProjectsTableProps) {
   return (
     <>
-      <PageHeader heading={heading} subheading={subheading}/>
+      <PageHeader
+        className="xl:mb-7.25"
+        heading={heading}
+        subheading={subheading}
+      >
+        <Button>+ Add Project</Button>
+      </PageHeader>
 
-      <div className="mb-4 flex max-md:flex-col gap-2 md:items-end">
-        <Select
-          label="Status"
-          defaultValue="all"
-          options={[
-            { label: "All", value: "all" },
-            { label: "On Track", value: "on-track" },
-            { label: "At Risk", value: "at-risk" },
-            { label: "Completed", value: "completed" },
-            { label: "Critical", value: "critical" },
-            { label: "In Progress", value: "in-progress" },
-          ]}
-        />
+      <div className="mb-4 flex max-md:flex-col gap-4 md:gap-2 md:items-center">
+        <div className="flex max-sm:flex-col gap-3 sm:gap-4">
+          <Select
+            className="min-w-45 max-md:flex-1"
+            label="Status"
+            defaultValue="all"
+            options={[
+              { label: "All", value: "all" },
+              { label: "On Track", value: "on-track" },
+              { label: "At Risk", value: "at-risk" },
+              { label: "Completed", value: "completed" },
+              { label: "Critical", value: "critical" },
+              { label: "In Progress", value: "in-progress" },
+            ]}
+          />
 
-        <Select
-          label="Zone"
-          defaultValue="all-zones"
-          options={[
-            { label: "All zones", value: "all-zones" },
-            { label: "Zone A", value: "zone-a" },
-            { label: "Zone B", value: "zone-b" },
-            { label: "Zone C", value: "zone-c" },
-          ]}
-        />
+          <Select
+            className="min-w-45 max-md:flex-1"
+            label="Zone"
+            defaultValue="all-zones"
+            options={[
+              { label: "All zones", value: "all-zones" },
+              { label: "Zone A", value: "zone-a" },
+              { label: "Zone B", value: "zone-b" },
+              { label: "Zone C", value: "zone-c" },
+            ]}
+          />
+        </div>
 
         <Tabs
+          className="max-md:self-end md:ml-auto md:mb-0.5"
           tabs={[
             { label: "Active", value: "active" },
             { label: "All", value: "all" },
           ]}
-          className="md:ml-auto"
         />
       </div>
 
-      <Table columns={columns} data={projectsData}/>
+      <Table
+        className="xl:[&>div>table>*>tr>*]:px-6"
+        columns={columns}
+        data={projectsData}
+      />
     </>
   );
 }

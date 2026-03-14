@@ -1,4 +1,10 @@
 import { PhotoDetails, RoadsDetails } from "./type";
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+    return twMerge(clsx(inputs));
+}
 
 export const ROADS_DATA: RoadsDetails[] = [
     { name: "N Tryon St", color: "#da383a" },

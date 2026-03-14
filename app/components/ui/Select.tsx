@@ -93,7 +93,7 @@ export default function Select({ options, value, defaultValue, placeholder = "Se
   return (
     <div className={`space-y-1.25 ${className}`.trim()}>
       {label ? (
-        <span className="text-midnight-blue text-medium text-sm leading-5 tracking-half block">
+        <span className="block text-midnight-blue text-medium text-sm leading-5 tracking-half cursor-default">
           {label}
         </span>
       ) : null}
@@ -101,7 +101,7 @@ export default function Select({ options, value, defaultValue, placeholder = "Se
       <div ref={selectRef} className="select">
         <button
           type="button"
-          className={`select-box w-full relative text-left pr-10 ${mounted && open ? "is-open" : ""}`}
+          className={`select-box ${mounted && open ? "is-open" : ""}`}
           onClick={toggleDropdown}
         >
           <span className="block truncate">{selectedOption?.label ?? placeholder}</span>

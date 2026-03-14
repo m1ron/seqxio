@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/app/utils/helper";
 
 type PageHeaderProps = {
     children?: React.ReactNode;
@@ -9,7 +10,7 @@ type PageHeaderProps = {
 
 export default function PageHeader({ children, heading, subheading, className }: PageHeaderProps) {
     return (
-        <div className={`mb-6.5 flex max-md:flex-col gap-2 ${className || ""}`}>
+        <div className={cn("mb-6.5 flex max-md:flex-col gap-2", className)}>
             <header className="space-y-0.5">
                 {heading ? (
                     <h1 className="text-black font-medium text-3xl md:text-custom-4xl leading-150 tracking-half">
