@@ -1,5 +1,5 @@
 "use client"
-import { useState } from 'react'
+import React, { useState } from 'react'
 import Button from '../ui/Button'
 import Icons from '../common/Icons'
 import Image from 'next/image'
@@ -8,6 +8,8 @@ import WasteChart from './WasteChart'
 import Heading from '../ui/Heading'
 import ImportDataModal from './ImportDataModal'
 import AddProjectModal from './AddProjectModal'
+
+import PageHeader from "@/app/components/common/PageHeader"
 
 interface ImportedData {
     id: string
@@ -58,14 +60,13 @@ const TotalProjects = () => {
     }
     return (
         <>
-            <div className="mb-4 md:mb-8 flex flex-col md:flex-row justify-between gap-3">
-                <div>
-                </div>
-                <div className='flex sm:flex-row flex-col items-center sm:gap-4 gap-3'>
-                    <Button className='flex items-center gap-2 min-w-[162px]  justify-center  max-sm:w-full xl:min-h-[56px]' onClick={() => setIsAddProjectModalOpen(true)}><Image width={14} height={14} src="./assets/images/svg/plus-icon.svg" alt="plus-icon"/> Add Project</Button>
-                    <Button variant='outline' className='min-w-[135px] max-sm:w-full xl:min-h-[56px]' onClick={() => setIsImportModalOpen(true)}>Import Data</Button>
-                </div>
-            </div>
+            <PageHeader
+                heading="Dashboard"
+                subheading="Monitor and manage waste collection operations in real-time."
+            >
+                <Button className='flex items-center gap-2 min-w-[162px]  justify-center  max-sm:w-full xl:min-h-[56px]' onClick={() => setIsAddProjectModalOpen(true)}><Image width={14} height={14} src="./assets/images/svg/plus-icon.svg" alt="plus-icon"/> Add Project</Button>
+                <Button variant='outline' className='min-w-[135px] max-sm:w-full xl:min-h-[56px]' onClick={() => setIsImportModalOpen(true)}>Import Data</Button>
+            </PageHeader>
 
             {/* Projects Display */}
             {projects.length > 0 && (

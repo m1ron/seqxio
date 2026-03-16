@@ -1,6 +1,5 @@
 import React from "react"
 
-import PageHeader from "@/app/components/common/PageHeader"
 import TotalProjects from "@/app/components/dashboard/TotalProjects"
 import ProjectProgress from "@/app/components/dashboard/ProjectProgress"
 import Calender from "@/app/components/dashboard/Calender"
@@ -24,11 +23,6 @@ export const metadata: Metadata = {
 const page = () => {
     return (
         <>
-            <PageHeader
-                heading="Dashboard"
-                subheading="Monitor and manage waste collection operations in real-time."
-            />
-
             <div className="mb-4">
                 <TotalProjects/>
             </div>
