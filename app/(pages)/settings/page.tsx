@@ -34,8 +34,8 @@ const page = () => {
                 subheading="Manage your preferences and organization configuration."
             />
 
-            <div className="flex max-md:flex-col gap-6 md:gap-8">
-                <div className="lg:w-69.75 shrink-0">
+            <div className="flex max-md:flex-col gap-6 md:gap-4 xl:gap-8">
+                <div className="md:w-45 xl:w-69.75 shrink-0">
                     <SettingsMenu items={settingsMenuItems} />
                 </div>
                 <div className="grow space-y-6">

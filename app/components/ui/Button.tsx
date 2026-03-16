@@ -25,7 +25,7 @@ const Button = ({
         primary:
             "py-2 text-white bg-gradient-to-r from-dark-green to-green hover:from-dark-green-hover hover:to-green-hover focus:from-dark-green-hover focus:to-green-hover",
         outline:
-            "py-1.75 duration-200 border border-dark-green text-dark-green hover:text-white hover:bg-gradient-to-r hover:from-dark-green-hover hover:to-green-hover focus:text-white focus:bg-gradient-to-r focus:from-dark-green-hover focus:to-green-hover",
+            "py-1.75 duration-200 border border-dark-green text-dark-green hover:bg-light-grey-200/75 focus:bg-light-grey-200/75",
     };
 
     return (

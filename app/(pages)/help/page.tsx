@@ -189,7 +189,7 @@ const page = () => {
                     </h3>
                     <div className="px-6 py-6.5 space-y-4.5 rounded-lg bg-white border border-light-grey-300">
                         <p className="text-charcoal-grey text-base leading-5 tracking-min">Still need help? Our support team is here to assist you.</p>
-                        <div className="flex gap-4 md:items-center max-md:flex-col md:-mb-0.5">
+                        <div className="flex gap-4 sm:gap-2 md:gap-4 sm:items-center max-sm:flex-col sm:-mb-0.5">
                             <Button className="tracking-minimal">Contact support</Button>
                             <Button className="tracking-minimal" variant="outline">Report a bug</Button>
                             <Button className="tracking-minimal" variant="outline">Request a feature</Button>

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Icons from "@/app/components/common/Icons";
+import { cn } from "@/app/utils/helper";
 
 type SelectOption = {
   label: string;
@@ -91,7 +92,7 @@ export default function Select({ options, value, defaultValue, placeholder = "Se
   };
 
   return (
-    <div className={`space-y-1.25 ${className}`.trim()}>
+    <div className={cn("space-y-1.25", className)}>
       {label ? (
         <span className="block text-midnight-blue text-medium text-sm leading-5 tracking-half cursor-default">
           {label}

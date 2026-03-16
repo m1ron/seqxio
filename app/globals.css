@@ -141,8 +141,11 @@
     .select .select-box.is-open {
         @apply border-light-grey-300;
     }
-    .select .select-box:hover, .select .select-box:focus {
+    .select .select-box:hover {
         @apply border-light-grey-400;
+    }
+    .select .select-box:focus {
+        @apply border-greenish;
     }
     .select .select-box svg,
     .select .select-box .custom-class {

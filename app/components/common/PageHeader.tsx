@@ -10,21 +10,21 @@ type PageHeaderProps = {
 
 export default function PageHeader({ children, heading, subheading, className }: PageHeaderProps) {
     return (
-        <div className={cn("mb-6.5 flex max-md:flex-col gap-2", className)}>
+        <div className={cn("mb-6.5 flex max-md:flex-col gap-4", className)}>
             <header className="space-y-0.5">
                 {heading ? (
-                    <h1 className="text-black font-medium text-3xl md:text-custom-4xl leading-150 tracking-half">
+                    <h1 className="text-black font-medium text-3xl xl:text-custom-4xl leading-150 tracking-half">
                         {heading}
                     </h1>
                 ) : null}
 
                 {subheading ? (
-                    <p className="text-light-green font-light text-base md:text-xl leading-120 -tracking-minimal">
+                    <p className="text-light-green font-light text-base xl:text-xl leading-120 -tracking-minimal">
                         {subheading}
                     </p>
                 ) : null}
             </header>
-            <div className="pt-px ml-auto flex gap-4 items-center">
+            <div className="ml-auto flex gap-4 items-center">
                 {children}
             </div>
         </div>
