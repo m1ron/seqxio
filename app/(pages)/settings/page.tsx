@@ -39,10 +39,7 @@ const page = () => {
                     <SettingsMenu items={settingsMenuItems} />
                 </div>
                 <div className="grow space-y-6">
-                    <form
-                        className="bg-white border border-light-grey-300 rounded-lg p-6 space-y-7.5"
-                        action="/settings"
-                    >
+                    <form className="bg-white border border-light-grey-300 rounded-lg p-6 space-y-7.5" action="/settings">
                         <h3 className="text-2xl font-semibold leading-none text-midnight-blue">Account</h3>
 
                         <div className="space-y-5.5">
@@ -64,10 +61,7 @@ const page = () => {
                         </div>
                     </form>
 
-                    <form
-                        className="bg-white border border-light-grey-300 rounded-lg p-6 space-y-7.5"
-                        action="/settings"
-                    >
+                    <form className="md:mb-4 xl:mb-8 xxl:mb-10 bg-white border border-light-grey-300 rounded-lg p-6 space-y-7.5" action="/settings">
                         <h3 className="text-2xl font-semibold leading-none text-midnight-blue">Password</h3>
 
                         <div className="space-y-5.5">

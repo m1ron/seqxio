@@ -12,7 +12,7 @@
 @theme {
     --font-sans: "Inter", sans-serif;
 
-    --breakpoint-custom-xl: 1480px;
+    --breakpoint-xxl: 1480px;
 
     --color-grey: #969696;
     --color-lighter: #f8fafb;

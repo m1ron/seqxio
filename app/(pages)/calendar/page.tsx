@@ -43,8 +43,8 @@ const page = () => {
                 />
             </PageHeader>
 
-            <div className="mb-8 flex max-xl:flex-col gap-4 xl:gap-8.5 xl:items-end">
-                <div className="flex max-sm:flex-col sm:justify-between gap-4 xl:gap-8.5">
+            <div className="mb-8 flex max-xxl:flex-col gap-4 xxl:gap-8.5 xxl:items-end">
+                <div className="flex max-sm:flex-col sm:justify-between gap-4 xxl:gap-8.5">
                     <h2 className="text-black text-xl md:text-2xl leading-10 font-bold tracking-mid">
                         February 2026
                     </h2>
@@ -61,9 +61,9 @@ const page = () => {
                         </Button>
                     </div>
                 </div>
-                <div className="xl:ml-auto flex max-sm:flex-col gap-3 xl:gap-4">
+                <div className="xxl:ml-auto flex max-sm:flex-col gap-3 xxl:gap-4">
                     <Select
-                        className="min-w-40 xl:min-w-45 max-xl:flex-1 md:space-y-px"
+                        className="min-w-40 xl:min-w-45 max-xxl:flex-1 md:space-y-px"
                         label="Zone"
                         defaultValue="all-zones"
                         options={[
@@ -74,7 +74,7 @@ const page = () => {
                         ]}
                     />
                     <Select
-                        className="min-w-40 xl:min-w-45 max-xl:flex-1 md:space-y-px"
+                        className="min-w-40 xl:min-w-45 max-xxl:flex-1 md:space-y-px"
                         label="Team"
                         defaultValue="all-teams"
                         options={[
@@ -85,7 +85,7 @@ const page = () => {
                         ]}
                     />
                     <Select
-                        className="min-w-40 xl:min-w-45 max-xl:flex-1 md:space-y-px"
+                        className="min-w-40 xl:min-w-45 max-xxl:flex-1 md:space-y-px"
                         label="Status"
                         defaultValue="all"
                         options={[

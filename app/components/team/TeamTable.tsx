@@ -96,8 +96,8 @@ export default function TeamTable({ heading, subheading }: TeamTableProps) {
                 heading={heading}
                 subheading={subheading}
             >
-                <Toggle id="live" label="Live only"/>
-                <Button>+ Add Team</Button>
+                <Toggle className="xl:mt-px" id="live" label="Live only"/>
+                <Button className="xl:px-5 xl:mt-px">+ Add Team</Button>
             </PageHeader>
 
             <div className="mb-4 flex max-md:flex-col gap-2">

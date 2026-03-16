@@ -12,6 +12,7 @@ export const MENU = [
         title: "Menu",
         sublinks: [
             { name: "Dashboard", url: "/", icon: "dashboard" },
+            { name: "Map", url: "/map", icon: "map" },
             { name: "Projects", url: "/projects", icon: "projects" },
             { name: "Calendar", url: "/calendar", icon: "calendar" },
             { name: "Analytics", url: "/analytics", icon: "analytics" },

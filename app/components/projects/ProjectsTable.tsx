@@ -126,7 +126,7 @@ export default function ProjectsTable({ heading, subheading, }: ProjectsTablePro
                 heading={heading}
                 subheading={subheading}
             >
-                <Button>+ Add Project</Button>
+                <Button className="xl:px-5 xl:mt-px xl:tracking-minimal">+ Add Project</Button>
             </PageHeader>
 
             <div className="mb-4 flex max-md:flex-col gap-4 md:gap-2 md:items-center">

@@ -183,7 +183,7 @@ const page = () => {
                     </div>
                 </section>
 
-                <section className="space-y-4">
+                <section className="space-y-4 md:mb-4 xl:mb-8 xxl:mb-12">
                     <h3 className="mb-4 text-2xl leading-8 font-semibold tracking-mid text-midnight-blue">
                         Contact &amp; Support
                     </h3>
