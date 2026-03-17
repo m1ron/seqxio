@@ -20,7 +20,7 @@ export type TeamRow = {
   issues?: string;
 };
 
-export const teamData: TeamRow[] = [
+export const teamsData: TeamRow[] = [
   {
     name: "Crew A",
     title: "North · 4 members",

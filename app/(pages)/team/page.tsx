@@ -1,5 +1,5 @@
 import React from 'react'
-import TeamTable from "@/app/components/team/TeamTable";
+import TeamsList from "@/app/components/teams/TeamsList";
 
 import { Metadata } from 'next';
 
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const page = () => {
     return (
         <div className="w-full flex-1">
-            <TeamTable
+            <TeamsList
                 heading="Teams"
                 subheading="Track crews, assignments, and operational status."
             />

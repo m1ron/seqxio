@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 
 import Icons from "@/app/components/common/Icons";
 import PageHeader from "@/app/components/common/PageHeader";
@@ -11,7 +11,7 @@ import Select from "@/app/components/ui/Select";
 import { projectsData, type ProjectRow, type ProjectStatusColor } from "@/app/components/projects/projects.data";
 import Button from "@/app/components/ui/Button";
 
-type ProjectsTableProps = {
+type ProjectsListProps = {
     heading: string;
     subheading?: string;
 };
@@ -116,10 +116,27 @@ const columns = [
     },
 ];
 
-export default function ProjectsTable({ heading, subheading, }: ProjectsTableProps) {
+export default function ProjectsList({ heading, subheading }: ProjectsListProps) {
+    const [selectedStatus, setSelectedStatus] = useState("all");
+    const [selectedZone, setSelectedZone] = useState("all-zones");
+
+    const filteredProjects = useMemo(() => {
+        return projectsData.filter((project) => {
+            const normalizedStatus = project.status.text.toLowerCase().replace(/\s+/g, "-");
+            const normalizedTitle = project.title.toLowerCase();
+
+            const matchesStatus =
+                selectedStatus === "all" || normalizedStatus === selectedStatus;
+
+            const matchesZone =
+                selectedZone === "all-zones" || normalizedTitle.includes(selectedZone.replace("-", " "));
+
+            return matchesStatus && matchesZone;
+        });
+    }, [selectedStatus, selectedZone]);
+
     return (
         <>
-
             {/* PageHeader */}
             <PageHeader
                 className="xl:mb-7.25"
@@ -134,7 +151,8 @@ export default function ProjectsTable({ heading, subheading, }: ProjectsTablePro
                     <Select
                         className="min-w-45 max-md:flex-1"
                         label="Status"
-                        defaultValue="all"
+                        value={selectedStatus}
+                        onChangeAction={setSelectedStatus}
                         options={[
                             { label: "All", value: "all" },
                             { label: "On Track", value: "on-track" },
@@ -148,7 +166,8 @@ export default function ProjectsTable({ heading, subheading, }: ProjectsTablePro
                     <Select
                         className="min-w-45 max-md:flex-1"
                         label="Zone"
-                        defaultValue="all-zones"
+                        value={selectedZone}
+                        onChangeAction={setSelectedZone}
                         options={[
                             { label: "All zones", value: "all-zones" },
                             { label: "Zone A", value: "zone-a" },
@@ -170,7 +189,7 @@ export default function ProjectsTable({ heading, subheading, }: ProjectsTablePro
             <Table
                 className="xl:[&>div>table>*>tr>*]:px-6"
                 columns={columns}
-                data={projectsData}
+                data={filteredProjects}
             />
         </>
     );

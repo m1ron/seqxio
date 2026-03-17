@@ -1,10 +1,12 @@
-import React from "react";
+"use client";
+
+import React, { useMemo, useState } from "react";
 import PageHeader from "@/app/components/common/PageHeader";
 import Toggle from "@/app/components/ui/Toggle";
 import Button from "@/app/components/ui/Button";
 import Select from "@/app/components/ui/Select";
 import Table from "@/app/components/ui/Table";
-import { teamData, type TeamRow } from "@/app/components/team/team.data";
+import { teamsData, type TeamRow } from "@/app/components/teams/teams.data";
 
 type TeamTableProps = {
     heading: string;
@@ -89,7 +91,36 @@ const columns = [
     },
 ];
 
-export default function TeamTable({ heading, subheading }: TeamTableProps) {
+export default function TeamsList({ heading, subheading }: TeamTableProps) {
+    const [selectedZone, setSelectedZone] = useState("all-zones");
+    const [selectedStatus, setSelectedStatus] = useState("all");
+    const [searchValue, setSearchValue] = useState("");
+
+    const filteredTeams = useMemo(() => {
+        const normalizedSearch = searchValue.trim().toLowerCase();
+
+        return teamsData.filter((team) => {
+            const normalizedTitle = team.title.toLowerCase();
+            const normalizedStatus = team.status.text.toLowerCase().replace(/\s+/g, "-");
+
+            const matchesZone =
+                selectedZone === "all-zones" ||
+                normalizedTitle.includes(selectedZone);
+
+            const matchesStatus =
+                selectedStatus === "all" ||
+                normalizedStatus === selectedStatus;
+
+            const matchesSearch =
+                normalizedSearch === "" ||
+                team.name.toLowerCase().includes(normalizedSearch) ||
+                team.title.toLowerCase().includes(normalizedSearch) ||
+                (team.assignment?.toLowerCase().includes(normalizedSearch) ?? false);
+
+            return matchesZone && matchesStatus && matchesSearch;
+        });
+    }, [selectedZone, selectedStatus, searchValue]);
+
     return (
         <>
             <PageHeader
@@ -103,7 +134,8 @@ export default function TeamTable({ heading, subheading }: TeamTableProps) {
             <div className="mb-4 flex max-md:flex-col gap-2">
                 <Select
                     className="min-w-45"
-                    defaultValue="all-zones"
+                    value={selectedZone}
+                    onChangeAction={setSelectedZone}
                     options={[
                         { label: "All zones", value: "all-zones" },
                         { label: "North", value: "north" },
@@ -113,7 +145,8 @@ export default function TeamTable({ heading, subheading }: TeamTableProps) {
                 />
                 <Select
                     className="min-w-45"
-                    defaultValue="all"
+                    value={selectedStatus}
+                    onChangeAction={setSelectedStatus}
                     options={[
                         { label: "All", value: "all" },
                         { label: "On Duty", value: "on-duty" },
@@ -124,13 +157,15 @@ export default function TeamTable({ heading, subheading }: TeamTableProps) {
                 <input
                     className="input block grow"
                     type="text"
+                    value={searchValue}
+                    onChange={(event) => setSearchValue(event.target.value)}
                     placeholder="Search teams or members…"
                 />
             </div>
 
             <Table
                 columns={columns}
-                data={teamData}
+                data={filteredTeams}
             />
         </>
     );
