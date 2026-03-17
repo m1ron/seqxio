@@ -20,7 +20,11 @@ export default function QuickHelp({ items }: QuickHelpProps) {
                 <div key={item.title} className="rounded-lg bg-white border border-light-grey-300 p-6 pt-5 space-y-6">
                     <div className="flex gap-4">
                         <div className="relative top-0.75 shrink-0">
-                            <Icons icon={item.icon}/>
+                            <img
+                                className="size-8 block select-none"
+                                src={item.icon}
+                                alt=""
+                            />
                         </div>
                         <div>
                             <h3 className="text-[18px] md:text-2xl leading-6 md:leading-8 font-semibold text-midnight-blue">
@@ -32,8 +36,8 @@ export default function QuickHelp({ items }: QuickHelpProps) {
                         </div>
                     </div>
                     <div className="flex">
-                        <a href={item.href} className="flex items-center gap-4 text-dark-green font-semibold text-sm leading-5 tracking-minimal">
-                            {item.linkLabel}
+                        <a href={item.href} className="flex items-center gap-4 text-dark-green font-semibold text-sm leading-5 tracking-minimal outline-none hover:text-black focus:text-black">
+                            <span className="block">{item.linkLabel}</span>
                             <Icons icon="arrowRight"/>
                         </a>
                     </div>

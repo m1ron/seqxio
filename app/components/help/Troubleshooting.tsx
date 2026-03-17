@@ -1,5 +1,4 @@
 import React from "react";
-import Icons from "@/app/components/common/Icons";
 
 type TroubleshootingItem = {
     title: string;
@@ -17,7 +16,15 @@ export default function Troubleshooting({ items }: TroubleshootingProps) {
             {items.map((item) => (
                 <div key={item.title} className="rounded-lg bg-white border border-light-grey-300 p-4 space-y-6">
                     <div className="flex gap-4">
-                        <Icons icon={item.icon}/>
+                        <div className="grow-0 shrink-0">
+                            <img
+                                className="block select-none"
+                                src={item.icon}
+                                width={20}
+                                height={20}
+                                alt=""
+                            />
+                        </div>
                         <div>
                             <h3 className="text-base leading-6 font-semibold text-midnight-blue tracking-half">
                                 {item.title}

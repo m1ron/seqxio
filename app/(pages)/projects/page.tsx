@@ -1,6 +1,6 @@
 import React from "react";
 
-import ProjectsTable from "@/app/components/projects/ProjectsList";
+import ProjectsList from "@/app/components/projects/ProjectsList";
 
 import { Metadata } from "next";
 
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const page = () => {
     return (
         <div className="w-full flex-1">
-            <ProjectsTable
+            <ProjectsList
                 heading="Projects"
                 subheading="Here you can manage all active and completed projects."
             />
