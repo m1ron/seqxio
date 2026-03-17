@@ -16,12 +16,12 @@ export const metadata: Metadata = {
 
 const page = () => {
     return (
-        <>
+        <div className="w-full flex-1">
             <PageHeader
                 heading="Analytics"
                 subheading="Track operational performance across projects, teams, and zones."
             />
-        </>
+        </div>
     )
 }
 

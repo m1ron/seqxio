@@ -14,12 +14,12 @@ export const metadata: Metadata = {
 
 const page = () => {
     return (
-        <>
+        <div className="w-full flex-1">
             <ProjectsTable
                 heading="Projects"
                 subheading="Here you can manage all active and completed projects."
             />
-        </>
+        </div>
     );
 };
 

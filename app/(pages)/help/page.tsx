@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 const page = () => {
     return (
-        <>
+        <div className="w-full flex-1">
             <PageHeader
                 className="xl:mb-8.5"
                 heading="Help"
@@ -197,7 +197,7 @@ const page = () => {
                     </div>
                 </section>
             </div>
-        </>
+        </div>
     )
 }
 

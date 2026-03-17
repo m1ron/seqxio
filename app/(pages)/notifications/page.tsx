@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 const page = () => {
     return (
-        <>
+        <div className="w-full flex-1">
             <div className="space-y-4">
                 <div className="md:flex max-md:space-y-4 max-md:mb-12 border-b border-b-light-grey-300">
                     <PageHeader
@@ -71,9 +71,7 @@ const page = () => {
                     </div>
                 </div>
             </div>
-
-
-        </>
+        </div>
     )
 }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 import PageHeader from "@/app/components/common/PageHeader";
 import Icons from "@/app/components/common/Icons";
@@ -6,7 +6,7 @@ import Button from "@/app/components/ui/Button";
 import Tabs from "@/app/components/ui/Tabs";
 import Select from "@/app/components/ui/Select";
 
-import { Metadata } from 'next';
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Calendar | seqxio",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 const page = () => {
     return (
-        <>
+        <div className="w-full flex-1">
 
             {/* PageHeader */}
             <PageHeader
@@ -160,7 +160,7 @@ const page = () => {
                     <button>5</button>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

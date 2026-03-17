@@ -15,12 +15,12 @@ export const metadata: Metadata = {
 
 const page = () => {
     return (
-        <>
+        <div className="w-full flex-1">
             <TeamTable
                 heading="Teams"
                 subheading="Track crews, assignments, and operational status."
             />
-        </>
+        </div>
     )
 }
 

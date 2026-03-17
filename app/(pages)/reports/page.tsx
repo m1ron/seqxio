@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 const page = () => {
     return (
-        <>
+        <div className="w-full flex-1">
             <PageHeader
                 className="md:mb-4.5"
                 heading="Reports"
@@ -130,7 +130,7 @@ const page = () => {
                     <Button>Next</Button>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

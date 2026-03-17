@@ -28,7 +28,7 @@ const settingsMenuItems = [
 
 const page = () => {
     return (
-        <>
+        <div className="w-full flex-1">
             <PageHeader
                 heading="Settings"
                 subheading="Manage your preferences and organization configuration."
@@ -84,7 +84,7 @@ const page = () => {
                     </form>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
