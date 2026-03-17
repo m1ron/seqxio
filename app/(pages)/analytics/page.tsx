@@ -1,6 +1,6 @@
 import React from 'react'
 
-import PageHeader from "@/app/components/common/PageHeader";
+import Analytics from "@/app/components/analytics/Analytics";
 
 import { Metadata } from 'next';
 
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const page = () => {
     return (
         <div className="w-full flex-1">
-            <PageHeader
+            <Analytics
                 heading="Analytics"
                 subheading="Track operational performance across projects, teams, and zones."
             />
