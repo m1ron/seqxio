@@ -13,6 +13,11 @@ const LeafletMap = dynamic(() => import("@/app/components/map/LeafletMap"), {
     ssr: false,
 });
 
+type MapProps = {
+    heading: string;
+    subheading?: string;
+};
+
 function PinsList({ pins }: { pins: PinItem[] }) {
     const priorityStyles: Record<PinPriority, string> = {
         High: "bg-red-200 text-red-800",
@@ -36,8 +41,8 @@ function PinsList({ pins }: { pins: PinItem[] }) {
                         <div className="flex justify-between">
                             <strong className="block font-semibold tracking-minimal">{pin.title}</strong>
                             <span className={`px-2 py-1 block self-start text-xs rounded-full ${priorityStyles[pin.priority]}`}>
-                            {pin.priority}
-                        </span>
+                                {pin.priority}
+                            </span>
                         </div>
                         <p className="text-sm text-gray-500">{pin.type}</p>
                         <time className="mt-1 block text-xs text-grey" dateTime={getDateTime(pin.date)}>
@@ -50,7 +55,7 @@ function PinsList({ pins }: { pins: PinItem[] }) {
     );
 }
 
-export default function Map() {
+export default function Map({ heading, subheading }: MapProps) {
     const [searchValue, setSearchValue] = useState("");
     const [selectedStatus, setSelectedStatus] = useState("all");
     const [selectedType, setSelectedType] = useState("all");
@@ -85,8 +90,8 @@ export default function Map() {
         <>
             <PageHeader
                 className="md:[&>div]:gap-2"
-                heading="Map"
-                subheading="View all projects and roads on the interactive map"
+                heading={heading}
+                subheading={subheading}
             >
                 <Button variant="outline">Draw Area</Button>
                 <Button className="xl:px-5 xl:mt-px">+ Add Pin</Button>
@@ -150,11 +155,11 @@ export default function Map() {
                         </div>
                     </div>
 
-                    <PinsList pins={filteredPins}/>
+                    <PinsList pins={filteredPins} />
                 </aside>
 
                 <div className="w-full relative h-105 md:h-140 xl:h-auto xl:flex-1 overflow-hidden rounded-lg border border-gray-300">
-                    <LeafletMap pins={filteredPins}/>
+                    <LeafletMap pins={filteredPins} />
                 </div>
             </div>
         </>

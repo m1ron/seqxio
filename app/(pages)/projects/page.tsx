@@ -1,5 +1,7 @@
 import React from "react";
+
 import ProjectsTable from "@/app/components/projects/ProjectsList";
+
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

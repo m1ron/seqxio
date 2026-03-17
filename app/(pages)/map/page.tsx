@@ -17,7 +17,10 @@ export const metadata: Metadata = {
 const page = () => {
     return (
         <div className="w-full flex flex-col flex-1">
-            <Map/>
+            <Map
+                heading="Map"
+                subheading="View all projects and roads on the interactive map"
+            />
         </div>
     )
 }

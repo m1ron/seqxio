@@ -1,4 +1,5 @@
 import React from 'react'
+
 import TeamsList from "@/app/components/teams/TeamsList";
 
 import { Metadata } from 'next';
