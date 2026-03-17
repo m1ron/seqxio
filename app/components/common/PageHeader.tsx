@@ -6,26 +6,19 @@ type PageHeaderProps = {
     heading: string;
     subheading?: string;
     className?: string;
-    headingClassName?: string;
 };
 
 export default function PageHeader({
-                                       children,
-                                       heading,
-                                       subheading,
-                                       className,
-                                       headingClassName,
-                                   }: PageHeaderProps) {
+    children,
+    heading,
+    subheading,
+    className,
+}: PageHeaderProps) {
     return (
         <div className={cn("mb-6.5 flex max-md:flex-col gap-4", className)}>
             <header className="space-y-0.5">
                 {heading ? (
-                    <h1
-                        className={cn(
-                            "text-black font-medium leading-150 tracking-half text-3xl xl:text-[40px]",
-                            headingClassName
-                        )}
-                    >
+                    <h1 className="text-black font-medium leading-150 tracking-half text-3xl xl:text-[40px]">
                         {heading}
                     </h1>
                 ) : null}

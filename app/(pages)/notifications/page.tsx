@@ -21,8 +21,7 @@ const page = () => {
 
             <PageHeader
                 heading="Notifications"
-                className="border-b border-b-light-grey-300 mb-3.5"
-                headingClassName="text-2xl xl:text-2xl font-bold leading-normal -tracking-tight"
+                className="border-b border-b-light-grey-300 mb-3.5 [&>header>h1]:text-2xl [&>header>h1]:xl:text-2xl [&>header>h1]:font-bold [&>header>h1]:-tracking-tight"
             >
                 <a href="#" className="block px-3.5 py-2.75 text-dark-green text-sm leading-5 font-medium">Mark all as read</a>
             </PageHeader>
