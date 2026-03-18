@@ -5,7 +5,7 @@ import Tabs from "@/app/components/ui/Tabs";
 import Button from "@/app/components/ui/Button";
 import Select from "@/app/components/ui/Select";
 import Steps from "@/app/components/reports/Steps";
-import Toggle from "@/app/components/ui/Toggle";
+import ToggleBox from "@/app/components/ui/ToggleBox";
 
 type ReportsProps = {
     heading: string;
@@ -115,7 +115,7 @@ export default function Reports({ heading, subheading }: ReportsProps) {
                             <input className="input w-full tracking-normal" type="text" placeholder="Weekly Operations Summary · Nov 18–Nov 25"/>
                         </div>
                     </div>
-                    <Toggle id="branding" label="Include Branding" defaultChecked={true}/>
+                    <ToggleBox id="branding" label="Include Branding" defaultChecked={true}/>
                     <p className="text-sm text-greenish">Adds logo and standardized styling to PDF exports.</p>
                 </div>
 

@@ -42,10 +42,10 @@ export default function Modal({ open, onClose, children, modalClass }: ModalProp
                     <button
                         type="button"
                         onClick={onClose}
-                        className="absolute top-4 right-4 p-1 rounded-full hover:bg-light-grey-200 focus:bg-light-grey-200 cursor-pointer outline-none"
+                        className="absolute top-3 right-3.25 p-1 rounded-full hover:bg-light-grey-200 focus:bg-light-grey-200 cursor-pointer outline-none"
                         aria-label="Close modal"
                     >
-                        <Icons icon="close" />
+                        <Icons className="size-4" icon="close" />
                     </button>
 
                     {children}

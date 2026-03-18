@@ -85,7 +85,7 @@
     --tracking-mid: 0.03em;
     --tracking-half: 0.02em;
     --tracking-minimal: 0.01em;
-    --tracking-min: .005em;
+    --tracking-min: 0.005em;
 }
 
 @layer base {
@@ -105,31 +105,21 @@
 
 @layer components {
 
-    /* TOGGLE */
-    .toggle {
-        @apply relative flex items-center gap-2 text-sm leading-3.5 font-medium cursor-pointer outline-none;
-    }
-    .toggle span {
-        @apply w-11 h-6 block relative bg-light-grey-200 rounded-full transition-colors duration-300;
-    }
-    .toggle span::before {
-        @apply block absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform duration-300;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-        content: '';
-    }
-    .toggle input {
-        @apply absolute -top-5 -left-5 opacity-0;
-    }
-    .toggle input:checked + span {
-        @apply bg-dark-green;
-    }
-    .toggle input:checked + span::before {
-        @apply translate-x-full;
-    }
-
     /* INPUT */
     .input {
         @apply block px-3 py-2 text-sm leading-5.5 -tracking-minimal text-midnight-blue bg-white border border-light-grey-200 focus:border-light-grey-400  rounded-md outline-none placeholder:transition-opacity placeholder:duration-300 focus:placeholder:opacity-0;
+    }
+
+    /* DATE */
+    .input-date, .input-time {
+        @apply block px-3 py-2 text-sm leading-5.5 -tracking-minimal text-midnight-blue bg-white border border-light-grey-200 focus:border-light-grey-400  rounded-md outline-none placeholder:transition-opacity placeholder:duration-300 focus:placeholder:opacity-0;
+        appearance: textfield;
+        -webkit-appearance: textfield;
+    }
+    .input-date::-webkit-calendar-picker-indicator,
+    .input-time::-webkit-calendar-picker-indicator {
+        display: none;
+        -webkit-appearance: none;
     }
 
     /* SELECT */
@@ -179,6 +169,63 @@
     }
     .select .select-dropdown:hover .select-option.active:not(:hover) {
         background: transparent;
+    }
+
+    /* CHECKBOX */
+    .checkbox {
+        @apply relative flex items-center gap-2 text-sm font-normal overflow-hidden select-none;
+    }
+    .checkbox > input {
+        @apply absolute -top-5 -left-5 w-4 h-4 rounded-md border border-light-grey-300 invisible;
+    }
+    .checkbox > input + span {
+        @apply size-4 border border-deep-slate block rounded-sm cursor-pointer;
+    }
+    .checkbox > input:checked + span {
+        @apply border-dark-green bg-dark-green;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='9' fill='none'%3E%3Cpath stroke='%23f5f5f5' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.6' d='M11.467.8 4.133 8.133.8 4.8'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    /* RADIOBOX */
+    .radiobox {
+        @apply relative flex items-center gap-2 text-sm font-normal overflow-hidden select-none;
+    }
+    .radiobox > input {
+        @apply absolute -top-5 -left-5 w-4 h-4 rounded-md border border-light-grey-300 invisible;
+    }
+    .radiobox > input + span {
+        @apply size-4 border border-deep-slate flex justify-center items-center rounded-full cursor-pointer;
+    }
+    .radiobox > input + span::before {
+        @apply size-2 block rounded-full bg-deep-slate opacity-0;
+        content: '';
+    }
+    .radiobox > input:checked + span::before {
+        @apply opacity-100;
+    }
+
+    /* TOGGLEBOX */
+    .togglebox {
+        @apply relative flex items-center gap-2 text-sm leading-3.5 font-medium cursor-pointer outline-none;
+    }
+    .togglebox span {
+        @apply w-11 h-6 block relative bg-light-grey-200 rounded-full transition-colors duration-300;
+    }
+    .togglebox span::before {
+        @apply block absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform duration-300;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        content: '';
+    }
+    .togglebox input {
+        @apply absolute -top-5 -left-5 opacity-0;
+    }
+    .togglebox input:checked + span {
+        @apply bg-dark-green;
+    }
+    .togglebox input:checked + span::before {
+        @apply translate-x-full;
     }
 }
 

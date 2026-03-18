@@ -4,7 +4,7 @@ import React from "react";
 
 import PageHeader from "@/app/components/common/PageHeader";
 
-import Checkbox from "@/app/components/ui/Checkbox";
+import CheckBox from "@/app/components/ui/CheckBox";
 import Select from "@/app/components/ui/Select";
 import Button from "@/app/components/ui/Button";
 import Tabs from "@/app/components/ui/Tabs";
@@ -52,7 +52,7 @@ export default function Analytics({ heading, subheading }: AnalyticsProps) {
                     Nov 1, 2023 – Feb 19, 2026
                 </Button>
 
-                <Checkbox
+                <CheckBox
                     className="ml-1"
                     id="compare"
                     label="Compare to previous period"

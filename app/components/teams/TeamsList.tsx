@@ -2,7 +2,7 @@
 
 import React, { useMemo, useState } from "react";
 import PageHeader from "@/app/components/common/PageHeader";
-import Toggle from "@/app/components/ui/Toggle";
+import ToggleBox from "@/app/components/ui/ToggleBox";
 import Button from "@/app/components/ui/Button";
 import Select from "@/app/components/ui/Select";
 import Table from "@/app/components/ui/Table";
@@ -127,7 +127,7 @@ export default function TeamsList({ heading, subheading }: TeamTableProps) {
                 heading={heading}
                 subheading={subheading}
             >
-                <Toggle className="xl:mt-px" id="live" label="Live only"/>
+                <ToggleBox className="xl:mt-px" id="live" label="Live only"/>
                 <Button className="xl:px-5 xl:mt-px">+ Add Team</Button>
             </PageHeader>
 

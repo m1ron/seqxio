@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-type ToggleProps = {
+type ToggleBoxProps = {
     id: string;
     label: string;
     checked?: boolean;
@@ -10,16 +10,16 @@ type ToggleProps = {
     onChangeAction?: (checked: boolean) => void;
 };
 
-export default function Toggle({
+export default function ToggleBox({
     id,
     label,
     checked,
     defaultChecked,
     className = "",
     onChangeAction,
-}: ToggleProps) {
+}: ToggleBoxProps) {
     return (
-        <label htmlFor={id} className={`toggle ${className}`.trim()}>
+        <label htmlFor={id} className={`togglebox ${className}`.trim()}>
             <input
                 id={id}
                 type="checkbox"

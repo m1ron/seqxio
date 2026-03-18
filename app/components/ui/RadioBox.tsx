@@ -3,40 +3,43 @@
 import React from "react";
 import { cn } from "@/app/utils/helper";
 
-type CheckboxProps = {
+type RadioBoxProps = {
     id: string;
+    name: string;
     label: string;
     className?: string;
     checked?: boolean;
     defaultChecked?: boolean;
-    onChange?: (checked: boolean) => void;
+    onChangeAction?: (checked: boolean) => void;
 };
 
-export default function Checkbox({
+export default function RadioBox({
     id,
+    name,
     label,
     className,
     checked,
     defaultChecked,
-    onChange,
-}: CheckboxProps) {
+    onChangeAction,
+}: RadioBoxProps) {
     return (
         <label
             htmlFor={id}
             className={cn(
-                "flex items-center gap-2 text-sm font-normal cursor-pointer select-none",
+                "radiobox",
                 className
             )}
         >
             <input
                 id={id}
-                type="checkbox"
+                name={name}
+                type="radio"
                 checked={checked}
                 defaultChecked={defaultChecked}
-                onChange={(e) => onChange?.(e.target.checked)}
-                className="size-4 rounded-md border border-light-grey-300 accent-dark-green"
+                onChange={(e) => onChangeAction?.(e.target.checked)}
             />
-            <span className="block">{label}</span>
+            <span />
+            <span className="inline-block cursor-pointer">{label}</span>
         </label>
     );
 }

@@ -1,7 +1,9 @@
 "use client";
-import Image from "next/image";
+
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+
 import Icons from "../common/Icons";
 
 const SearchBox = () => {
