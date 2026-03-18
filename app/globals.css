@@ -183,25 +183,25 @@
 }
 
 @layer utilities {
-    .scrollbar-hide {
+    .scrollbar-hidden {
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         -ms-overflow-style: none;
     }
-    .scrollbar-hide::-webkit-scrollbar {
+    .scrollbar-hidden::-webkit-scrollbar {
         display: none;
     }
 
-    .custom-scroll::-webkit-scrollbar {
+    .scrollbar-custom::-webkit-scrollbar {
         width: 5px;
         height: 5px;
     }
-    .custom-scroll::-webkit-scrollbar-track {
-        background: #555;
+    .scrollbar-custom::-webkit-scrollbar-track {
+        background: var(--color-light-green);
         border-radius: 10px;
     }
-    .custom-scroll::-webkit-scrollbar-thumb {
-        background: #5fbd92;
+    .scrollbar-custom::-webkit-scrollbar-thumb {
+        background: var(--color-green);
         border-radius: 10px;
     }
 }

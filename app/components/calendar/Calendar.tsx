@@ -4,11 +4,13 @@ import React, { useState } from "react";
 
 import PageHeader from "@/app/components/common/PageHeader";
 import Icons from "@/app/components/common/Icons";
-import Modal from "@/app/components/common/Modal";
 
 import Button from "@/app/components/ui/Button";
 import Tabs from "@/app/components/ui/Tabs";
 import Select from "@/app/components/ui/Select";
+
+import DateModal from "@/app/components/calendar/DateModal";
+import AddNoteModal from "@/app/components/calendar/AddNoteModal";
 
 type CalendarProps = {
     heading: string;
@@ -78,24 +80,24 @@ const CALENDAR_DAYS: CalendarDay[] = [
 ];
 
 export default function Calendar({ heading, subheading }: CalendarProps) {
-    const [open, setOpen] = useState(false);
+    const [dateModalOpen, setDateModalOpen] = useState(false);
+    const [addNoteOpen, setAddNoteOpen] = useState(false);
     const [selectedDate, setSelectedDate] = useState("Thursday, January 29");
 
     const openModalForDay = (item: CalendarDay) => {
         setSelectedDate(`${WEEKDAY_FULL[item.weekday]}, January ${item.day}`);
-        setOpen(true);
+        setDateModalOpen(true);
     };
 
     return (
         <div className="w-full flex-1">
-            {/* PageHeader */}
             <PageHeader
                 className="md:mb-9.25 gap-4 lg:gap-6 max-sm:[&>div]:flex-col max-sm:[&>div]:w-full max-sm:[&>div]:gap-4"
                 heading={heading}
                 subheading={subheading}
             >
                 <div className="max-md:mr-2 xl:mr-2 flex gap-2 self-start">
-                    <Button>Add note</Button>
+                    <Button onClick={() => setAddNoteOpen(true)}>Add note</Button>
                     <Button variant="outline">Today</Button>
                 </div>
 
@@ -188,38 +190,22 @@ export default function Calendar({ heading, subheading }: CalendarProps) {
                 </div>
             </div>
 
-            <Modal
-                open={open}
-                onClose={() => setOpen(false)}
-                title={selectedDate}
-            >
-                <div className="space-y-4">
-                    <section className="px-3.5 py-4 md:py-5 border border-light-grey-300 bg-white rounded-md">
-                        <header className="mb-3.75 flex items-center justify-between gap-3">
-                            <h3 className="mt-1 text-xl xl:text-2xl font-semibold md:tracking-half text-midnight-blue">
-                                Scheduled Projects
-                            </h3>
-                            <Button className="tracking-minimal">Add Note</Button>
-                        </header>
-                        <div className="pt-7 pb-5.5">
-                            <p className="text-sm xl:text-base text-center text-greenish tracking-min">
-                                No projects scheduled for this day.
-                            </p>
-                        </div>
-                    </section>
+            <DateModal
+                modalClass="md:max-w-128"
+                open={dateModalOpen}
+                selectedDate={selectedDate}
+                onCloseAction={() => setDateModalOpen(false)}
+                onSaveAction={() => {
+                    setDateModalOpen(false);
+                    setAddNoteOpen(true);
+                }}
+            />
 
-                    <section className="px-3.5 py-4 md:py-5 border border-light-grey-300 bg-white rounded-md">
-                        <h3 className="xl:px-2.5 xl:py-0.5 mb-4 text-xl xl:text-2xl font-semibold md:tracking-half text-midnight-blue">
-                            Notes
-                        </h3>
-                        <div className="pt-3.25 pb-5.75">
-                            <p className="text-sm xl:text-base text-center text-greenish tracking-min">
-                                No notes for this day.
-                            </p>
-                        </div>
-                    </section>
-                </div>
-            </Modal>
+            <AddNoteModal
+                open={addNoteOpen}
+                onCloseAction={() => setAddNoteOpen(false)}
+                onSaveAction={() => setAddNoteOpen(false)}
+            />
         </div>
     );
 }

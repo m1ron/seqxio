@@ -1,9 +1,14 @@
+"use client";
+
 import React from "react";
 
 import PageHeader from "@/app/components/common/PageHeader";
+
+import Checkbox from "@/app/components/ui/Checkbox";
 import Select from "@/app/components/ui/Select";
 import Button from "@/app/components/ui/Button";
 import Tabs from "@/app/components/ui/Tabs";
+
 import CollectionChart from "@/app/components/analytics/CollectionChart";
 import CompletionChart from "@/app/components/analytics/CompletionChart";
 import EfficiencyChart from "@/app/components/analytics/EfficiencyChart";
@@ -47,17 +52,11 @@ export default function Analytics({ heading, subheading }: AnalyticsProps) {
                     Nov 1, 2023 – Feb 19, 2026
                 </Button>
 
-                <label
-                    htmlFor="compare"
-                    className="ml-1 flex items-center gap-2 text-sm font-normal cursor-pointer select-none"
-                >
-                    <input
-                        id="compare"
-                        type="checkbox"
-                        className="size-4 rounded-md border border-light-grey-300 accent-dark-green"
-                    />
-                    <span className="block">Compare to previous period</span>
-                </label>
+                <Checkbox
+                    className="ml-1"
+                    id="compare"
+                    label="Compare to previous period"
+                />
             </div>
 
 
@@ -159,7 +158,7 @@ export default function Analytics({ heading, subheading }: AnalyticsProps) {
                             ]}
                         />
                     </div>
-                    <div className="pt-2 pr-3.75 pb-3 pl-7.25 relative w-full overflow-y-auto scrollbar-hide">
+                    <div className="pt-2 pr-3.75 pb-3 pl-7.25 relative w-full overflow-y-auto scrollbar-hidden">
                         <CollectionChart
                             data={[
                                 { day: "Mon", value: 400 },
@@ -177,7 +176,7 @@ export default function Analytics({ heading, subheading }: AnalyticsProps) {
                 {/* On-Time Completion */}
                 <section className="p-6 rounded-lg bg-white text-midnight-blue shadow-xs border border-light-grey-300">
                     <h3 className="mb-6 text-base font-semibold tracking-[-0.015em]">On-Time Completion</h3>
-                    <div className="pt-1.5 relative w-full overflow-y-auto scrollbar-hide">
+                    <div className="pt-1.5 relative w-full overflow-y-auto scrollbar-hidden">
                         <CompletionChart
                             data={[
                                 { name: "On time", value: 68, color: "#1E88F5" },
@@ -192,7 +191,7 @@ export default function Analytics({ heading, subheading }: AnalyticsProps) {
                 {/* Issue Sources */}
                 <section className="p-6 rounded-lg bg-white text-midnight-blue shadow-xs border border-light-grey-300">
                     <h3 className="mb-6 text-base font-semibold tracking-[-0.015em]">Issue Sources</h3>
-                    <div className="relative h-60 w-full overflow-y-auto scrollbar-hide">
+                    <div className="relative h-60 w-full overflow-y-auto scrollbar-hidden">
                         <EfficiencyChart
                             yAxisWidth={112}
                             data={[
@@ -211,7 +210,7 @@ export default function Analytics({ heading, subheading }: AnalyticsProps) {
                 {/* Team Efficiency */}
                 <section className="p-6 rounded-lg bg-white text-midnight-blue shadow-xs border border-light-grey-300">
                     <h3 className="mb-6 text-base font-semibold tracking-[-0.015em]">Team Efficiency (Avg Completion Time)</h3>
-                    <div className="relative h-60 w-full overflow-y-auto scrollbar-hide">
+                    <div className="relative h-60 w-full overflow-y-auto scrollbar-hidden">
                         <EfficiencyChart
                             data={[
                                 { label: "Crew A", value: 130 },
@@ -229,7 +228,7 @@ export default function Analytics({ heading, subheading }: AnalyticsProps) {
                 {/* Top Performing Zones */}
                 <section className="p-6 xl:mt-2 rounded-lg bg-white text-midnight-blue shadow-xs border border-light-grey-300">
                     <h3 className="mb-6 text-base font-semibold tracking-[-0.015em]">Top Performing Zones (by waste collected)</h3>
-                    <div className="relative w-full overflow-y-auto scrollbar-hide">
+                    <div className="relative w-full overflow-y-auto scrollbar-hidden">
                         <RankingTable
                             rows={[
                                 { rank: 1, name: "Zone 1", value: "4.2k ", suffix: "tons" },
@@ -245,7 +244,7 @@ export default function Analytics({ heading, subheading }: AnalyticsProps) {
                 {/* Most Efficient Teams */}
                 <section className="p-6 xl:mt-2 rounded-lg bg-white text-midnight-blue shadow-xs border border-light-grey-300">
                     <h3 className="mb-6 text-base font-semibold tracking-[-0.015em]">Most Efficient Teams (by completion time)</h3>
-                    <div className="relative w-full overflow-y-auto scrollbar-hide">
+                    <div className="relative w-full overflow-y-auto scrollbar-hidden">
                         <RankingTable
                             rows={[
                                 { rank: 1, name: "Crew A", value: "2h 10m ", suffix: "avg time" },

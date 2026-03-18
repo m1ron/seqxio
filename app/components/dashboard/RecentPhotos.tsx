@@ -85,7 +85,7 @@ const RecentPhotos = () => {
           className="hidden"
         />
       </div>
-      <div className='overflow-y-auto h-60.5 scrollbar-hide'>
+      <div className='overflow-y-auto h-60.5 scrollbar-hidden'>
         {photos.length === 0 ? (
           <div className='flex flex-col items-center justify-center h-full gap-3'>
             <span className='text-4xl'>📷</span>

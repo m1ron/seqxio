@@ -54,7 +54,7 @@ export default function SideBar() {
         <>
             {/* SIDEBAR */}
             <header
-                className={`w-66 p-6 bg-light-grey rounded-3xl flex flex-col justify-between gap-8 overflow-y-auto scrollbar-hide fixed top-3 lg:left-4 bottom-3 z-50 transform lg:translate-x-0 ${
+                className={`w-66 p-6 bg-light-grey rounded-3xl flex flex-col justify-between gap-8 overflow-y-auto scrollbar-hidden fixed top-3 lg:left-4 bottom-3 z-50 transform lg:translate-x-0 ${
                     openNav
                         ? "translate-x-0 max-lg:left-4"
                         : "-translate-x-full max-lg:left-0 max-lg:transition-transform max-lg:duration-300"
@@ -62,7 +62,7 @@ export default function SideBar() {
             >
 
                 {/* Logo */}
-                <Link href="/public" className="py-4 block">
+                <Link href="/" className="py-4 block">
                     <Image
                         className="block select-none"
                         src="/assets/images/png/logo-dashboard.png"

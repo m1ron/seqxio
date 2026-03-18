@@ -48,7 +48,7 @@ const Roads = () => {
           New
         </Button>
       </div>
-      <div className='flex flex-col h-66 overflow-auto custom-scroll'>
+      <div className='flex flex-col h-66 overflow-auto scrollbar-custom'>
         {roads.length === 0 ? (
           <div className='flex flex-col items-center justify-center h-full text-center py-8'>
             <span className='text-5xl mb-3'>🛣️</span>

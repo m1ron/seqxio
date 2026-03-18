@@ -72,7 +72,7 @@ const TotalProjects = () => {
             {projects.length > 0 && (
                 <div className='my-4 p-4 bg-white rounded-[15px]'>
                     <Heading className='mb-4'>{`Projects (${projects.length})`}</Heading>
-                    <div className='grid md:grid-cols-2 gap-3 h-[145px] overflow-auto custom-scroll'>
+                    <div className='grid md:grid-cols-2 gap-3 h-[145px] overflow-auto scrollbar-custom'>
                         {projects.map((project) => (
                             <div key={project.id} className='sm:p-4 p-3 border border-green rounded-lg'>
                                 <div className='flex justify-between items-start mb-3'>
@@ -102,7 +102,7 @@ const TotalProjects = () => {
             {importedData.length > 0 && (
                 <div className='my-4 p-4 bg-white rounded-[15px]'>
                     <Heading className='mb-4'>{`Imported Data (${importedData.length})`}</Heading>
-                    <div className='space-y-2 h-[180px] overflow-auto custom-scroll'>
+                    <div className='space-y-2 h-[180px] overflow-auto scrollbar-custom'>
                         {importedData.map((item) => (
                             <div key={item.id} className='p-3 border border-light-grey rounded-lg flex justify-between items-center'>
                                 <div className='max-sm:max-w-[120px]'>

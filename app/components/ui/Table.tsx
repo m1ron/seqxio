@@ -16,7 +16,7 @@ type TableProps<T> = {
 export default function Table<T>({ columns, data, className = "" }: TableProps<T>) {
     return (
         <div className={`overflow-hidden rounded-lg border border-light-grey-300 bg-white ${className}`.trim()}>
-            <div className="px-4 md:px-6 -mx-4 md:-mx-6 overflow-x-auto scrollbar-hide">
+            <div className="px-4 md:px-6 -mx-4 md:-mx-6 overflow-x-auto scrollbar-hidden">
                 <table className="min-w-full bg-white border-collapse">
                     <thead>
                     <tr>

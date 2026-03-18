@@ -133,7 +133,7 @@ const AddProjectModal = ({ isOpen, onClose, onAdd }: AddProjectModalProps) => {
 
     return (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50" onClick={onClose}>
-            <div className="bg-white rounded-[15px] p-6 max-w-[600px] w-full mx-4 max-h-[90vh] overflow-y-auto custom-scroll" onClick={(e) => e.stopPropagation()}>
+            <div className="bg-white rounded-[15px] p-6 max-w-[600px] w-full mx-4 max-h-[90vh] overflow-y-auto scrollbar-custom" onClick={(e) => e.stopPropagation()}>
                 <div className="flex justify-between items-center mb-6">
                     <h2 className="text-2xl font-medium text-black">Add New Project</h2>
                     <button onClick={onClose} className="cursor-pointer text-black hover:bg-red-900 bg-red-500 rounded-sm transition-all ease-linear duration-300">

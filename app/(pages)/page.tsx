@@ -2,7 +2,7 @@ import React from "react"
 
 import TotalProjects from "@/app/components/dashboard/TotalProjects"
 import ProjectProgress from "@/app/components/dashboard/ProjectProgress"
-import Calender from "@/app/components/dashboard/Calender"
+import Calendar from "@/app/components/dashboard/Calendar"
 import RecentPhotos from "@/app/components/dashboard/RecentPhotos"
 import Roads from "@/app/components/dashboard/Roads"
 import Tracker from "@/app/components/dashboard/Tracker"
@@ -34,7 +34,7 @@ const page = () => {
                         <InteractiveMap/>
                     </div>
                     <div className="flex sm:flex-row flex-col items-center gap-4 justify-between">
-                        <Calender/>
+                        <Calendar/>
                         <RecentPhotos/>
                     </div>
                 </div>
