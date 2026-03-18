@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import Icons from "./Icons";
+import Icons from "../common/Icons";
 
 const SearchBox = () => {
     const [openSearch, setOpenSearch] = useState(false);

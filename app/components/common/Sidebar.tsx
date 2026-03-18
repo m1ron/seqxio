@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import Icons from "../common/Icons";
+import Icons from "./Icons";
 import useStore from "@/app/utils/store";
 
 export const MENU = [

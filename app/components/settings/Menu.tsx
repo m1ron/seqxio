@@ -1,17 +1,17 @@
 import React from "react";
 
-type SettingsMenuItem = {
+type MenuItem = {
     label: string;
     href: string;
     active?: boolean;
 };
 
-type SettingsMenuProps = {
-    items: SettingsMenuItem[];
+type MenuProps = {
+    items: MenuItem[];
     className?: string;
 };
 
-export default function SettingsMenu({ items, className = "" }: SettingsMenuProps) {
+export default function Menu({ items, className = "" }: MenuProps) {
     return (
         <ul className={`text-sm leading-5 text-charcoal-grey font-medium space-y-1 ${className}`.trim()}>
             {items.map((item) => (

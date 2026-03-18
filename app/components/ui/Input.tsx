@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import Icons from './Icons'
+import Icons from '../common/Icons'
 
 interface InputProps {
     placeholderText: string

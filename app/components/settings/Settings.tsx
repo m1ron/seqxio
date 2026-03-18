@@ -2,23 +2,12 @@ import React from "react";
 
 import PageHeader from "@/app/components/common/PageHeader";
 import Button from "@/app/components/ui/Button";
-import SettingsMenu from "@/app/components/settings/SettingsMenu";
+import Menu from "@/app/components/settings/Menu";
 
 type SettingsProps = {
     heading: string;
     subheading?: string;
 };
-
-const settingsMenuItems = [
-    { label: "Profile", href: "/settings", active: true },
-    { label: "Notifications", href: "#" },
-    { label: "Display & Units", href: "#" },
-    { label: "Team & Roles", href: "#" },
-    { label: "Zones", href: "#" },
-    { label: "Map & Tracking", href: "#" },
-    { label: "Data & Integrations", href: "#" },
-    { label: "Security", href: "#" },
-];
 
 export default function Settings({ heading, subheading }: SettingsProps) {
     return (
@@ -31,7 +20,7 @@ export default function Settings({ heading, subheading }: SettingsProps) {
             <div className="flex max-md:flex-col gap-6 md:gap-4 xl:gap-8">
 
                 <div className="md:w-45 xl:w-69.75 shrink-0">
-                    <SettingsMenu
+                    <Menu
                         items={[
                             { label: "Profile", href: "/settings", active: true },
                             { label: "Notifications", href: "#" },

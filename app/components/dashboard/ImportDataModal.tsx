@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import Icons from '../common/Icons'
 import Button from '../ui/Button'
-import Input from '../common/Input'
+import Input from '../ui/Input'
 
 interface ImportedData {
     id: string
