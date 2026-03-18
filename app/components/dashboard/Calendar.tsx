@@ -3,7 +3,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
 import Icons from "@/app/components/common/Icons";
-import Heading from "@/app/components/ui/Heading";
 import AddNoteModal from "@/app/components/calendar/AddNoteModal";
 
 interface DateNote {
@@ -76,7 +75,9 @@ const Calendar = () => {
     return (
         <div className="bg-white p-4 rounded-2xl w-full sm:w-[50%]">
             <div className="flex justify-between items-center mb-4">
-                <Heading>Calendar</Heading>
+                <h2 className="font-medium leading-120 text-black text-xl -tracking-[0.64px]">
+                    Calendar
+                </h2>
 
                 <div className="relative" ref={dropdownRef}>
                     <button
