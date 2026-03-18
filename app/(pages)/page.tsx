@@ -5,10 +5,11 @@ import ProjectProgress from "@/app/components/dashboard/ProjectProgress"
 import Calendar from "@/app/components/dashboard/Calendar"
 import RecentPhotos from "@/app/components/dashboard/RecentPhotos"
 import Roads from "@/app/components/dashboard/Roads"
-import Tracker from "@/app/components/dashboard/Tracker"
-import InteractiveMap from "@/app/components/dashboard/InteractiveMap"
+import Tracker from "@/app/components/dashboard/Tracker";
+import InteractiveMap from "@/app/components/dashboard/InteractiveMap";
+import DashboardHeader from "@/app/components/dashboard/DashboardHeader";
 
-import { Metadata } from 'next';
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Dashboard | seqxio",
@@ -24,27 +25,32 @@ const page = () => {
     return (
         <>
             <div className="mb-4">
-                <TotalProjects/>
+                <DashboardHeader
+                    heading="Dashboard"
+                    subheading="Monitor and manage waste collection operations in real-time."
+                />
+
+                <TotalProjects />
             </div>
 
             <div className="flex flex-col xl:flex-row gap-4">
                 <div className="w-full flex flex-col gap-4">
                     <div className="flex sm:flex-row flex-col gap-4">
-                        <ProjectProgress/>
-                        <InteractiveMap/>
+                        <ProjectProgress />
+                        <InteractiveMap />
                     </div>
                     <div className="flex sm:flex-row flex-col items-center gap-4 justify-between">
-                        <Calendar/>
-                        <RecentPhotos/>
+                        <Calendar />
+                        <RecentPhotos />
                     </div>
                 </div>
                 <div className="w-full xl:w-[265px] max-xl:flex max-xl:flex-row max-sm:!flex-col gap-4 shrink-0">
-                    <Roads/>
-                    <Tracker/>
+                    <Roads />
+                    <Tracker />
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default page
+export default page;
