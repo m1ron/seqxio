@@ -7,9 +7,10 @@ import PageHeader from "@/app/components/common/PageHeader";
 import Table from "@/app/components/ui/Table";
 import Tabs from "@/app/components/ui/Tabs";
 import Select from "@/app/components/ui/Select";
+import Button from "@/app/components/ui/Button";
+import AddProjectModal from "@/app/components/projects/AddProjectModal";
 
 import { projectsData, type ProjectRow, type ProjectStatusColor } from "@/app/components/projects/projects.data";
-import Button from "@/app/components/ui/Button";
 
 type ProjectsListProps = {
     heading: string;
@@ -119,6 +120,7 @@ const columns = [
 export default function ProjectsList({ heading, subheading }: ProjectsListProps) {
     const [selectedStatus, setSelectedStatus] = useState("all");
     const [selectedZone, setSelectedZone] = useState("all-zones");
+    const [addProjectOpen, setAddProjectOpen] = useState(false);
 
     const filteredProjects = useMemo(() => {
         return projectsData.filter((project) => {
@@ -137,13 +139,17 @@ export default function ProjectsList({ heading, subheading }: ProjectsListProps)
 
     return (
         <>
-            {/* PageHeader */}
             <PageHeader
                 className="xl:mb-7.25"
                 heading={heading}
                 subheading={subheading}
             >
-                <Button className="xl:px-5 xl:mt-px xl:tracking-minimal">+ Add Project</Button>
+                <Button
+                    className="xl:px-5 xl:mt-px xl:tracking-minimal"
+                    onClick={() => setAddProjectOpen(true)}
+                >
+                    + Add Project
+                </Button>
             </PageHeader>
 
             <div className="mb-4 flex max-md:flex-col gap-4 md:gap-2 md:items-center">
@@ -190,6 +196,12 @@ export default function ProjectsList({ heading, subheading }: ProjectsListProps)
                 className="xl:[&>div>table>*>tr>*]:px-6"
                 columns={columns}
                 data={filteredProjects}
+            />
+
+            <AddProjectModal
+                isOpen={addProjectOpen}
+                onClose={() => setAddProjectOpen(false)}
+                onAdd={() => setAddProjectOpen(false)}
             />
         </>
     );

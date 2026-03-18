@@ -97,7 +97,7 @@ export default function Calendar({ heading, subheading }: CalendarProps) {
                 subheading={subheading}
             >
                 <div className="max-md:mr-2 xl:mr-2 flex gap-2 self-start">
-                    <Button onClick={() => setAddNoteOpen(true)}>Add note</Button>
+                    <Button onClick={() => setAddNoteOpen(true)}>+ Add note</Button>
                     <Button variant="outline">Today</Button>
                 </div>
 
