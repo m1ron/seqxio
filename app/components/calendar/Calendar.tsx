@@ -191,7 +191,7 @@ export default function Calendar({ heading, subheading }: CalendarProps) {
             </div>
 
             <DateModal
-                modalClass="md:max-w-128"
+                modalClass="md:max-w-128 [&>div>button>svg]:size-6"
                 open={dateModalOpen}
                 selectedDate={selectedDate}
                 onCloseAction={() => setDateModalOpen(false)}

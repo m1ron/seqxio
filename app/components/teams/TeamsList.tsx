@@ -7,6 +7,7 @@ import Button from "@/app/components/ui/Button";
 import Select from "@/app/components/ui/Select";
 import Table from "@/app/components/ui/Table";
 import { teamsData, type TeamRow } from "@/app/components/teams/teams.data";
+import Icons from "@/app/components/common/Icons";
 
 type TeamTableProps = {
     heading: string;
@@ -85,7 +86,7 @@ const columns = [
         className: "text-right",
         render: () => (
             <button className="float-right flex justify-center items-center size-10 bg-white hover:bg-light-grey-100 focus:bg-light-grey-100 transition-colors border border-light-grey-200 rounded-2xl cursor-pointer outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><path stroke="#020817" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.333" d="M8 8.667a.667.667 0 1 0 0-1.334.667.667 0 0 0 0 1.334M8 4a.667.667 0 1 0 0-1.333A.667.667 0 0 0 8 4M8 13.333A.667.667 0 1 0 8 12a.667.667 0 0 0 0 1.333"/></svg>
+                <Icons icon="dots"/>
             </button>
         ),
     },

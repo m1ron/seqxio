@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Button from "@/app/components/ui/Button";
 import CheckBox from "@/app/components/ui/CheckBox";
@@ -12,7 +12,6 @@ import Modal from "@/app/components/common/Modal";
 interface AddProjectModalProps {
     isOpen: boolean;
     onClose: () => void;
-    onAdd: () => void;
 }
 
 type Step = 1 | 2 | 3;
@@ -51,12 +50,12 @@ function Steps({ items, currentStep, className }: StepsProps) {
                                             : "bg-cool-mist text-greenish"
                                 }`}
                             >
-                                {isCompleted ? <Icons icon="check"/> : String(stepNumber).padStart(2, "0")}
+                                {isCompleted ? <Icons icon="check" /> : String(stepNumber).padStart(2, "0")}
                             </span>
                             <span className="text-sm font-medium text-greenish">{item.label}</span>
                         </div>
 
-                        {index < items.length - 1 ? <div className="w-19 max-md:w-1 h-px bg-light-grey-300"/> : null}
+                        {index < items.length - 1 ? <div className="w-19 max-md:w-1 h-px bg-light-grey-300" /> : null}
                     </React.Fragment>
                 );
             })}
@@ -67,11 +66,16 @@ function Steps({ items, currentStep, className }: StepsProps) {
 export default function AddProjectModal({
                                             isOpen,
                                             onClose,
-                                            onAdd,
                                         }: AddProjectModalProps) {
     const [step, setStep] = useState<Step>(1);
     const startDateRef = useRef<HTMLInputElement>(null);
     const startTimeRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        if (isOpen) {
+            setStep(1);
+        }
+    }, [isOpen]);
 
     const goNext = () => setStep((current) => Math.min(current + 1, 3) as Step);
     const goBack = () => setStep((current) => Math.max(current - 1, 1) as Step);
@@ -212,7 +216,7 @@ export default function AddProjectModal({
                                             onClick={openDatePicker}
                                             className="p-1 absolute top-1/2 right-1 -translate-y-1/2 cursor-pointer"
                                         >
-                                            <Icons icon="date"/>
+                                            <Icons icon="date" />
                                         </button>
                                     </div>
                                 </div>
@@ -235,7 +239,7 @@ export default function AddProjectModal({
                                             onClick={openTimePicker}
                                             className="p-1 absolute top-1/2 right-1 -translate-y-1/2 cursor-pointer"
                                         >
-                                            <Icons icon="time"/>
+                                            <Icons icon="time" />
                                         </button>
                                     </div>
                                 </div>
@@ -313,7 +317,7 @@ export default function AddProjectModal({
                                     Assign Road(s) <span className="text-greenish font-normal">(optional)</span>
                                 </label>
                                 <div className="mb-2 select">
-                                    <input type="text" className="w-full input block" placeholder="Search roads..."/>
+                                    <input type="text" className="w-full input block" placeholder="Search roads..." />
                                 </div>
                                 <p className="text-sm text-greenish">
                                     Roads help group projects for crews and reporting.

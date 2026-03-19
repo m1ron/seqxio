@@ -23,7 +23,7 @@ export default function Modal({ open, onClose, children, modalClass }: ModalProp
         <>
             <div
                 className={cn(
-                    "fixed inset-0 z-100 bg-black/80 transition-opacity duration-300 ease",
+                    "fixed inset-0 z-100 bg-black/80 transition-opacity duration-400 ease",
                     open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
                 )}
                 onClick={onClose}
@@ -32,7 +32,7 @@ export default function Modal({ open, onClose, children, modalClass }: ModalProp
             <aside
                 className={cn(
                     "fixed right-0 top-0 z-110 h-dvh w-full md:max-w-2xl bg-white",
-                    "transform transition-transform duration-300 ease",
+                    "transform transition-transform duration-400 ease",
                     open ? "translate-x-0" : "translate-x-full",
                     modalClass
                 )}

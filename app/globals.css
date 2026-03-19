@@ -122,52 +122,52 @@
         -webkit-appearance: none;
     }
 
-    /* SELECT */
+    /* SELECTBOX */
     .select {
         @apply relative;
     }
-    .select .select-box {
+    .select-box {
         @apply w-full block pl-3 pr-7 py-2.25 border border-light-grey-200 text-sm text-left leading-5 bg-white relative rounded-md transition-colors cursor-pointer outline-none;
     }
-    .select .select-box.is-open {
+    .select-box.is-open {
         @apply border-light-grey-300;
     }
-    .select .select-box:hover {
+    .select-box:hover {
         @apply border-light-grey-400;
     }
-    .select .select-box:focus {
+    .select-box:focus {
         @apply border-greenish;
     }
-    .select .select-box svg,
-    .select .select-box .custom-class {
+    .select-box svg,
+    .select-box .custom-class {
         @apply absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none;
     }
-    .select .select-dropdown {
-        @apply min-w-full absolute top-full left-0 z-20 p-1.5 mt-1 border border-light-grey-200 bg-white rounded-md;
+    .select-dropdown {
+        @apply min-w-full absolute top-full left-0 z-20 p-1.25 mt-1 border border-light-grey-200 bg-white rounded-md;
         box-shadow: 0 8px 24px rgba(15, 23, 42, .08);
         transform-origin: top center;
         transition: opacity 180ms ease, transform 180ms ease;
     }
-    .select .select-dropdown.is-open {
+    .select-dropdown.is-open {
         opacity: 1;
         transform: translateY(0) scale(1);
         pointer-events: auto;
     }
-    .select .select-dropdown.is-closed {
+    .select-dropdown.is-closed {
         opacity: 0;
         transform: translateY(-8px) scale(.96);
         pointer-events: none;
     }
-    .select .select-option {
+    .select-option {
         @apply flex w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm leading-5 text-midnight-blue cursor-pointer transition-colors text-nowrap;
     }
-    .select .select-option:hover {
+    .select-option:hover {
         @apply bg-cool-mist;
     }
-    .select .select-option.active {
+    .select-option.active {
         @apply bg-cool-mist;
     }
-    .select .select-dropdown:hover .select-option.active:not(:hover) {
+    .select-dropdown:hover .select-option.active:not(:hover) {
         background: transparent;
     }
 

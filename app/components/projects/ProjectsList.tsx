@@ -4,11 +4,15 @@ import React, { useMemo, useState } from "react";
 
 import Icons from "@/app/components/common/Icons";
 import PageHeader from "@/app/components/common/PageHeader";
+
 import Table from "@/app/components/ui/Table";
 import Tabs from "@/app/components/ui/Tabs";
 import Select from "@/app/components/ui/Select";
 import Button from "@/app/components/ui/Button";
+import Dots from "@/app/components/ui/Dots";
+
 import AddProjectModal from "@/app/components/projects/AddProjectModal";
+import ProjectDetailsModal from "@/app/components/projects/ProjectDetailsModal";
 
 import { projectsData, type ProjectRow, type ProjectStatusColor } from "@/app/components/projects/projects.data";
 
@@ -59,68 +63,11 @@ function RoadsList({ roads }: { roads: string[] }) {
     );
 }
 
-const columns = [
-    {
-        header: "Project Name",
-        render: (row: ProjectRow) => (
-            <>
-                <span className="block font-medium text-nowrap">{row.name}</span>
-                <span className="block text-nowrap text-greenish">{row.title}</span>
-            </>
-        ),
-    },
-    {
-        header: "Status",
-        render: (row: ProjectRow) => (
-            <span className={`px-2 py-0.5 border-2 rounded-full inline-block text-xs leading-4 text-nowrap cursor-default ${statusStyles[row.status.color]}`}>
-        {row.status.text}
-      </span>
-        ),
-    },
-    {
-        header: "Assigned Team",
-        render: (row: ProjectRow) =>
-            row.assignedTeam ? (
-                <span className={`text-nowrap ${row.assignedTeamClassName ?? ""}`}>
-          {row.assignedTeam}
-        </span>
-            ) : null,
-    },
-    {
-        header: "Start Time",
-        render: (row: ProjectRow) => (
-            <span className="text-nowrap">{row.startTime}</span>
-        ),
-    },
-    {
-        header: "Roads",
-        render: (row: ProjectRow) => <RoadsList roads={row.roads}/>,
-    },
-    {
-        header: "Issues",
-        render: (row: ProjectRow) =>
-            row.issues ? (
-                <span className="flex items-center gap-1.5">
-          <Icons icon="issues"/>
-          <span className="font-medium text-ruby-red cursor-default">{row.issues}</span>
-        </span>
-            ) : null,
-    },
-    {
-        header: "Actions",
-        className: "text-right",
-        render: () => (
-            <button className="float-right flex justify-center items-center size-10 bg-white hover:bg-light-grey-100 focus:bg-light-grey-100 transition-colors border border-light-grey-200 rounded-2xl cursor-pointer outline-none">
-                <Icons icon="dots"/>
-            </button>
-        ),
-    },
-];
-
 export default function ProjectsList({ heading, subheading }: ProjectsListProps) {
     const [selectedStatus, setSelectedStatus] = useState("all");
     const [selectedZone, setSelectedZone] = useState("all-zones");
     const [addProjectOpen, setAddProjectOpen] = useState(false);
+    const [projectDetailsOpen, setProjectDetailsOpen] = useState(false);
 
     const filteredProjects = useMemo(() => {
         return projectsData.filter((project) => {
@@ -136,6 +83,75 @@ export default function ProjectsList({ heading, subheading }: ProjectsListProps)
             return matchesStatus && matchesZone;
         });
     }, [selectedStatus, selectedZone]);
+
+    const columns = [
+        {
+            header: "Project Name",
+            render: (row: ProjectRow) => (
+                <>
+                    <span className="block font-medium text-nowrap">{row.name}</span>
+                    <span className="block text-nowrap text-greenish">{row.title}</span>
+                </>
+            ),
+        },
+        {
+            header: "Status",
+            render: (row: ProjectRow) => (
+                <span className={`px-2 py-0.5 border-2 rounded-full inline-block text-xs leading-4 text-nowrap cursor-default ${statusStyles[row.status.color]}`}>
+                    {row.status.text}
+                </span>
+            ),
+        },
+        {
+            header: "Assigned Team",
+            render: (row: ProjectRow) =>
+                row.assignedTeam ? (
+                    <span className={`text-nowrap ${row.assignedTeamClassName ?? ""}`}>
+                        {row.assignedTeam}
+                    </span>
+                ) : null,
+        },
+        {
+            header: "Start Time",
+            render: (row: ProjectRow) => (
+                <span className="text-nowrap">{row.startTime}</span>
+            ),
+        },
+        {
+            header: "Roads",
+            render: (row: ProjectRow) => <RoadsList roads={row.roads}/>,
+        },
+        {
+            header: "Issues",
+            render: (row: ProjectRow) =>
+                row.issues ? (
+                    <span className="flex items-center gap-1.5">
+                        <Icons icon="issues"/>
+                        <span className="font-medium text-ruby-red cursor-default">{row.issues}</span>
+                    </span>
+                ) : null,
+        },
+        {
+            header: "Actions",
+            className: "text-right",
+            render: () => (
+                <Dots
+                    className="float-right"
+                    items={[
+                        { label: "View Project", value: "view-project" },
+                        { label: "Edit", value: "edit" },
+                        { label: "Mark as Complete", value: "mark-complete" },
+                        { label: "Delete", value: "delete" },
+                    ]}
+                    onItemClickAction={(value) => {
+                        if (value === "view-project") {
+                            setProjectDetailsOpen(true);
+                        }
+                    }}
+                />
+            ),
+        },
+    ];
 
     return (
         <>
@@ -201,7 +217,11 @@ export default function ProjectsList({ heading, subheading }: ProjectsListProps)
             <AddProjectModal
                 isOpen={addProjectOpen}
                 onClose={() => setAddProjectOpen(false)}
-                onAdd={() => setAddProjectOpen(false)}
+            />
+
+            <ProjectDetailsModal
+                open={projectDetailsOpen}
+                onClose={() => setProjectDetailsOpen(false)}
             />
         </>
     );
