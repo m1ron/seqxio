@@ -55,6 +55,7 @@ export default function Analytics({ heading, subheading }: AnalyticsProps) {
                 <CheckBox
                     className="ml-1"
                     id="compare"
+                    name="compare"
                     label="Compare to previous period"
                 />
             </div>
