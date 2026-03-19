@@ -40,35 +40,30 @@ function EmptyState() {
     );
 }
 
-function RoadRow({
-                     road,
-                     onDelete,
-                 }: {
+function RoadRow({ road, onDelete, }: {
     road: RoadData;
     onDelete: (id: string) => void;
 }) {
     return (
         <div
-            className="cursor-pointer flex items-center justify-between gap-2 group hover:bg-gray-100 p-[5px] rounded-sm"
+            className="relative cursor-pointer flex items-center justify-between gap-2 group hover:bg-gray-100 p-1.25 rounded-sm"
             key={road.id}
         >
-            <p className="font-normal text-base leading-150 -tracking-[0.64px] text-black">
+            <p className="text-base leading-150 -tracking-[0.64px] text-black">
                 {road.name}
             </p>
 
-            <div className="flex items-center gap-2">
-                <div className="rounded-full size-2" style={{ backgroundColor: road.color }}/>
+            <div className="mr-2 relative rounded-full size-2" style={{ backgroundColor: road.color }}/>
 
-                <button
-                    type="button"
-                    onClick={() => onDelete(road.id)}
-                    className="cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-900 bg-red-500 flex items-center justify-center rounded-sm"
-                    title="Delete road"
-                    aria-label={`Delete road ${road.name}`}
-                >
-                    <Icons className="size-4" icon="closenav"/>
-                </button>
-            </div>
+            <button
+                type="button"
+                onClick={() => onDelete(road.id)}
+                className="my-auto size-4 absolute top-0 right-2 bottom-0 cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-900 bg-red-500 flex items-center justify-center rounded-sm"
+                title="Delete road"
+                aria-label={`Delete road ${road.name}`}
+            >
+                <Icons className="size-4" icon="closenav"/>
+            </button>
         </div>
     );
 }
@@ -82,7 +77,7 @@ export default function Roads() {
     };
 
     return (
-        <div className="bg-white rounded-[15px] p-4 pb-3.5 flex flex-col gap-4 xl:mb-4 max-xl:w-[50%] max-sm:w-full">
+        <div className="bg-white rounded-[15px] p-4 pb-3.5 flex flex-col gap-3 xl:mb-4 max-xl:w-[50%] max-sm:w-full">
             <div className="flex items-center justify-between gap-2">
                 <h2 className="text-black font-medium leading-120 text-xl -tracking-[0.64px]">
                     Roads
@@ -93,17 +88,17 @@ export default function Roads() {
                     className="px-5 py-1.5 text-base leading-150 -tracking-mid rounded-full flex items-center gap-2 justify-center"
                     onClick={() => setIsAddRoadModalOpen(true)}
                 >
-                    <Icons className="-ml-px" icon="greenPlusicon" />
+                    <Icons className="-ml-px" icon="greenPlusicon"/>
                     New
                 </Button>
             </div>
 
-            <div className="flex flex-col h-66 overflow-auto scrollbar-custom">
+            <div className="-mx-1.25 flex flex-col h-67 overflow-y-auto scrollbar-hidden">
                 {roads.length === 0 ? (
-                    <EmptyState />
+                    <EmptyState/>
                 ) : (
                     roads.map((road) => (
-                        <RoadRow key={road.id} road={road} onDelete={handleDeleteRoad} />
+                        <RoadRow key={road.id} road={road} onDelete={handleDeleteRoad}/>
                     ))
                 )}
             </div>

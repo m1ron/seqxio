@@ -59,7 +59,7 @@ export default function TimeTracker({ className }: TimeTrackerProps) {
             style={{ backgroundImage: `url('${TRACKER_BACKGROUND}')` }}
         >
             <div className="p-4 flex h-full flex-col justify-between cursor-default">
-                <p className="font-medium leading-120 text-white text-xl -tracking-[0.64px]">
+                <p className="font-medium leading-100 text-white text-xl -tracking-[0.64px]">
                     Time Tracker
                 </p>
                 <p className="font-medium md:text-custom-4xl text-4xl -tracking-[0.64px] text-white mx-auto max-sm:my-2">
