@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Modal from "@/app/components/common/Modal";
 import Button from "@/app/components/ui/Button";
+import RadioBox from "@/app/components/ui/RadioBox";
 import CheckBox from "@/app/components/ui/CheckBox";
 import Tabs from "@/app/components/ui/Tabs";
 import Select from "@/app/components/ui/Select";
@@ -31,6 +32,7 @@ export default function UploadPhotosModal({
     const [step, setStep] = useState<Step>(1);
     const [context, setContext] = useState<"project" | "road">("project");
     const [flagAsIssue, setFlagAsIssue] = useState(true);
+    const fileInputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         if (open) {
@@ -51,6 +53,10 @@ export default function UploadPhotosModal({
     const handleSubmit = () => {
         onSubmit?.();
         onClose();
+    };
+
+    const handleBrowseFiles = () => {
+        fileInputRef.current?.click();
     };
 
     return (
@@ -77,13 +83,22 @@ export default function UploadPhotosModal({
                                     Choose Context*
                                 </h3>
 
-                                <Tabs
-                                    className="bg-transparent p-0 [&>li>button]:px-0 [&>li>button]:py-0"
-                                    tabs={[
-                                        { label: "Project", value: "project" },
-                                        { label: "Road", value: "road" },
-                                    ]}
-                                />
+                                <div className="flex flex-col gap-2">
+                                    <RadioBox
+                                        id="upload-context-project"
+                                        name="upload-context"
+                                        label="Project"
+                                        checked={context === "project"}
+                                        onChangeAction={() => setContext("project")}
+                                    />
+                                    <RadioBox
+                                        id="upload-context-road"
+                                        name="upload-context"
+                                        label="Road"
+                                        checked={context === "road"}
+                                        onChangeAction={() => setContext("road")}
+                                    />
+                                </div>
                             </section>
 
                             <section className="space-y-3">
@@ -108,7 +123,12 @@ export default function UploadPhotosModal({
 
                                 <Tabs
                                     className="bg-cool-grey p-1 rounded-md [&>li>button]:rounded-sm [&>li>button]:px-4 [&>li>button]:py-1.5"
-                                    tabs={PHOTO_TYPES}
+                                    tabs={[
+                                        { label: "Before", value: "before" },
+                                        { label: "During", value: "during" },
+                                        { label: "After", value: "after" },
+                                        { label: "Issue", value: "issue" },
+                                    ]}
                                 />
                             </section>
 
@@ -125,20 +145,32 @@ export default function UploadPhotosModal({
                         </div>
                     ) : (
                         <div className="space-y-6">
-                            <div className="rounded-md border-2 border-dashed border-light-grey-300 bg-white px-4 py-8 md:px-6 md:py-10">
+                            <input
+                                ref={fileInputRef}
+                                type="file"
+                                accept="image/*"
+                                multiple
+                                className="hidden"
+                            />
+
+                            <button
+                                type="button"
+                                onClick={handleBrowseFiles}
+                                className="w-full rounded-md border-2 border-dashed border-light-grey-300 bg-white px-4 py-8 md:px-6 md:py-10 cursor-pointer outline-none focus:border-greenish hover:border-greenish transition-colors"
+                            >
                                 <div className="flex min-h-44 flex-col items-center justify-center text-center">
                                     <p className="text-base md:text-lg font-medium text-greenish">
                                         Drag and drop photos here
                                     </p>
                                     <p className="mt-3 text-sm text-greenish">or</p>
-                                    <Button variant="outline" className="mt-3 px-5 py-2.5">
+                                    <span className="mt-3 inline-flex px-5 py-2.5 rounded-full border border-dark-green text-dark-green bg-white">
                                         Browse files
-                                    </Button>
+                                    </span>
                                     <p className="mt-4 text-sm text-greenish">
                                         PNG, JPG up to 10MB each. Up to 12 photos at a time.
                                     </p>
                                 </div>
-                            </div>
+                            </button>
 
                             <section className="space-y-2">
                                 <CheckBox
