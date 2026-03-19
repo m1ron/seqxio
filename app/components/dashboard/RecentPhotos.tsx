@@ -6,8 +6,22 @@ import Image from "next/image";
 import Icons from "@/app/components/common/Icons";
 import Button from "@/app/components/ui/Button";
 import UploadPhotosModal from "@/app/components/dashboard/UploadPhotosModal";
+import { PhotoDetails } from "@/app/utils/type";
 
-import { PHOTOS_DATA } from "@/app/utils/helper";
+const PHOTOS_DATA: PhotoDetails[] = [
+    { image: "/assets/images/webp/photo1.webp" },
+    { image: "/assets/images/webp/photo2.webp" },
+    { image: "/assets/images/webp/photo3.webp" },
+    { image: "/assets/images/webp/photo4.webp" },
+    { image: "/assets/images/webp/photo5.webp" },
+    { image: "/assets/images/webp/photo6.webp" },
+    { image: "/assets/images/webp/photo7.webp" },
+    { image: "/assets/images/webp/photo8.webp" },
+    { image: "/assets/images/webp/photo9.webp" },
+    { image: "/assets/images/webp/photo10.webp" },
+    { image: "/assets/images/webp/photo11.webp" },
+    { image: "/assets/images/webp/photo12.webp" }
+];
 
 type PhotoItem = {
     image: string;
@@ -64,16 +78,12 @@ export default function RecentPhotos() {
                 <h2 className="text-black font-medium leading-120 text-xl -tracking-[0.64px]">
                     Recent Photos
                 </h2>
-
                 <Button
                     variant="outline"
                     className="px-5 py-1.5 text-base leading-150 -tracking-mid rounded-full flex items-center gap-2 justify-center"
                     onClick={() => setUploadPhotosOpen(true)}
                 >
-                    <Icons
-                        className="-ml-px"
-                        icon="greenPlusicon"
-                    />
+                    <Icons className="-ml-px" icon="greenPlusicon"/>
                     Upload
                 </Button>
             </div>

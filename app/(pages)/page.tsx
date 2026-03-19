@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 const page = () => {
     return (
         <>
-            <div className="mb-4">
+            <div className="mb-3">
                 <DashboardHeader
                     heading="Dashboard"
                     subheading="Monitor and manage waste collection operations in real-time."
