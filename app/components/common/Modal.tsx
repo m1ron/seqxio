@@ -23,7 +23,7 @@ export default function Modal({ open, onClose, children, modalClass }: ModalProp
         <>
             <div
                 className={cn(
-                    "fixed inset-0 z-100 bg-black/80 transition-opacity duration-400 ease",
+                    "fixed inset-0 z-100 bg-black/70 transition-opacity duration-400 ease",
                     open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
                 )}
                 onClick={onClose}

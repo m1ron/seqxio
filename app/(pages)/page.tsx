@@ -1,13 +1,16 @@
 import React from "react"
 
+import DashboardHeader from "@/app/components/dashboard/DashboardHeader";
 import TotalProjects from "@/app/components/dashboard/TotalProjects"
+
 import ProjectProgress from "@/app/components/dashboard/ProjectProgress"
 import Calendar from "@/app/components/dashboard/Calendar"
 import RecentPhotos from "@/app/components/dashboard/RecentPhotos"
 import Roads from "@/app/components/dashboard/Roads"
-import Tracker from "@/app/components/dashboard/Tracker";
 import InteractiveMap from "@/app/components/dashboard/InteractiveMap";
-import DashboardHeader from "@/app/components/dashboard/DashboardHeader";
+
+import TimeTracker from "@/app/components/dashboard/TimeTracker";
+
 
 import { Metadata } from "next";
 
@@ -46,7 +49,7 @@ const page = () => {
                 </div>
                 <div className="w-full xl:w-[265px] max-xl:flex max-xl:flex-row max-sm:!flex-col gap-4 shrink-0">
                     <Roads />
-                    <Tracker />
+                    <TimeTracker />
                 </div>
             </div>
         </>

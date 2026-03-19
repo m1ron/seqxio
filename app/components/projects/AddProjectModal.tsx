@@ -384,17 +384,11 @@ export default function AddProjectModal({
                         </Button>
 
                         {step < 3 ? (
-                            <Button
-                                onClick={goNext}
-                                className="px-5.5"
-                            >
+                            <Button className="px-5.5" onClick={goNext}>
                                 Next: {step === 1 ? "Location" : "Assignment"}
                             </Button>
                         ) : (
-                            <Button
-                                onClick={handleCreateProject}
-                                className="px-5.5"
-                            >
+                            <Button className="px-5.5" onClick={handleCreateProject}>
                                 Create Project
                             </Button>
                         )}

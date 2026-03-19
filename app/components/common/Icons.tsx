@@ -38,6 +38,7 @@ const Icons: React.FC<LoginCardProps> = ({ icon, className, pathClassName }) => 
         arrowNext: (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"><path stroke="#155234" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.333" d="m6 12 4-4-4-4"/></svg>),
         check: (<svg xmlns="http://www.w3.org/2000/svg" width="11" height="8" fill="none"><path fill="#0f172a" d="M3.762 6.254 9.791.214A.68.68 0 0 1 10.289 0q.284 0 .498.214A.7.7 0 0 1 11 .722a.7.7 0 0 1-.213.507L4.26 7.786A.68.68 0 0 1 3.762 8a.68.68 0 0 1-.498-.214L.205 4.722A.67.67 0 0 1 0 4.214a.73.73 0 0 1 .223-.508.7.7 0 0 1 .507-.214q.293 0 .507.214z"/></svg>),
         close: (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><path stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 6 6 18M6 6l12 12"/></svg>),
+        plus: (<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none"><path fill="#fff" d="M14 8H8v6H6V8H0V6h6V0h2v6h6z"/></svg>),
 
 
         security: (
